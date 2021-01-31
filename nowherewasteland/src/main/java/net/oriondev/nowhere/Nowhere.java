@@ -1,6 +1,7 @@
 package net.oriondev.nowhere;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
@@ -45,6 +46,7 @@ public class Nowhere implements ModInitializer {
 		NowhereWorldRegistries.registerWorldStuff();
 		biomeSetup();
 		commonSetup();
+		clearRAM();
 		System.out.println("Registered Nowhere, welcome... to your last stop...");
 
 	}
@@ -66,6 +68,8 @@ public class Nowhere implements ModInitializer {
 		BiomeRegistry.biomeList.sort(Comparator.comparingInt(BiomeRegistry.PreserveBiomeOrder::getOrderPosition));
 		BiomeRegistry.biomeList.forEach(preserveBiomeOrder -> Registry.register(BuiltinRegistries.BIOME, new Identifier(MOD_ID, preserveBiomeOrder.getId()), preserveBiomeOrder.getBiome()));
 		BiomeRegistry.addBiomeNumericalIDs();
+		BiomeDataListHolder.fillBiomeLists();
+		SubBiomeDataListHolder.fillBiomeLists();
 		System.out.println("Biomes Registered!");
 	}
 
@@ -95,12 +99,12 @@ public class Nowhere implements ModInitializer {
 		public static void registerWorldStuff(){
 
 			System.out.println("Registering Biomes...");
+
 			BiomeRegistry.init();
 			BiomeRegistry.biomeList.sort(Comparator.comparingInt(BiomeRegistry.PreserveBiomeOrder::getOrderPosition));
 			BiomeRegistry.biomeList.forEach(preserveBiomeOrder -> Registry.register(BuiltinRegistries.BIOME, new Identifier(MOD_ID, preserveBiomeOrder.getId()), preserveBiomeOrder.getBiome()));
 			BiomeRegistry.addBiomeNumericalIDs();
 			System.out.println("Biomes Registered!");
-
 		}
 	}
 }

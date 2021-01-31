@@ -40,6 +40,7 @@ public class BiomeRegistry {
         for (BiomeData biomeData : NowhereBiome.biomeData) {
             if (biomeData.getBiomeWeight() > 0) {
                 OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight() / 10.0);
+
             }
         }
     }
@@ -58,7 +59,6 @@ public class BiomeRegistry {
             Lists::newArrayList).collect(Collectors.toList());
     }
 
-    //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
     public static void addBiomeNumericalIDs() {
         for (PreserveBiomeOrder biome : biomeList) {
             Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome.getBiome());
