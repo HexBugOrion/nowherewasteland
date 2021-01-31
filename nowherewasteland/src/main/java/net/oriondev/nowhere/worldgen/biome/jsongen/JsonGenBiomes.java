@@ -54,6 +54,7 @@ public class JsonGenBiomes {
 
     public static void handleNowhereSubBiomesJSONConfig(Path path) {
         GsonBuilder gsonBuilder = new GsonBuilder();
+        //it's this same goddamn thing all over again, it won't work, so I think I'm stuck at this fucking corner
         gsonBuilder.registerTypeAdapter(SubBiomeDataListHolder.class, new SubBiomeDataListHolderSerializer());
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();

@@ -20,10 +20,10 @@ public class BlockRegistry {
     public static final Block DUST = createSands("dust");
     public static final Block DESERT_ROOTS = createFlower("desert_roots");
     public static final Block DRIED_LOG = createLogs("dried_log");
-    public static final Block DRAINED_PACKED_DUST = createSoils("drained_packed_dust");
-    public static final Block DRAINED_DUST = createSands("drained_dust");
-    public static final Block NECROTIC_PACKED_DUST = createSoils("necrotic_packed_dust");
-    public static final Block NECROTIC_DUST = createSands("necrotic_dust");
+    public static final Block DRAINED_PACKED_DUST = createLifelessSoils("drained_packed_dust");
+    public static final Block DRAINED_DUST = createLifelessSands("drained_dust");
+    public static final Block NECROTIC_PACKED_DUST = createLifelessSoils("necrotic_packed_dust");
+    public static final Block NECROTIC_DUST = createLifelessSands("necrotic_dust");
     public static final Block NECROTIC_LOG = createLogs("necrotic_log");
     public static final Block SCRAP_HEAP = createMetalScraps("scrap_heap");
 
@@ -41,7 +41,23 @@ public class BlockRegistry {
         blocksList.add(createBlock);
         return createBlock;
     }
-    static Block createSands(String id){
+    static Block createLifelessSoils(String id) {
+        Block createBlock = new Block(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SOUL_SOIL)
+                .strength(0.5f, 0.5f).ticksRandomly().breakByTool(FabricToolTags.SHOVELS));
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+        static Block createSands(String id){
+        Block createBlock = new Block(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SAND).strength(0.2f).strength(0.5f, 0.1f).ticksRandomly().breakByTool(
+                FabricToolTags.SHOVELS));
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+    static Block createLifelessSands(String id){
         Block createBlock = new Block(
             FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SAND).strength(0.2f).strength(0.5f, 0.1f).ticksRandomly().breakByTool(
                 FabricToolTags.SHOVELS));

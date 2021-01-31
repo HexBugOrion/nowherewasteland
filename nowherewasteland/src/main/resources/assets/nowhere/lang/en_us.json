@@ -13,8 +13,10 @@
   "block.nowhere.necrotic_dust": "Necrotic Dust",
   "block.nowhere.necrotic_packed_dust": "Necrotic Packed Dust",
   "block.nowhere.necrotic_log": "Necrotic Log",
+  "block.nowhere.scrap_heap": "Scrap Heap",
+  "block.nowhere.dust_stone": "Dust Stone",
 
-  "item.nowhere.scrapmetal": "Scrapmetal",
+  "item.nowhere.scrapmetal": "Scrap Metal",
   "item.nowhere.desert_root": "Desert Root"
 
 }

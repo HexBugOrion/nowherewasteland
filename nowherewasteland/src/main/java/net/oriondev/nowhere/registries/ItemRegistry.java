@@ -26,9 +26,9 @@ public class ItemRegistry {
     public static final Item NECROTIC_LOG = createItem(new BlockItem(BlockRegistry.NECROTIC_LOG, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "necrotic_log");
     public static final Item SCRAP_HEAP = createItem(new BlockItem(BlockRegistry.SCRAP_HEAP, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "scrap_heap");
     public static final Item DESERT_ROOTS = createItem(new BlockItem(BlockRegistry.DESERT_ROOTS, new Item.Settings().group(Nowhere.NOWHERE_DECOR)), "desert_roots");
-    public static final Item DESERT_ROOT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.f).build())), "desert_root");
     //items
     public static final Item SCRAPMETAL = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "scrapmetal");
+    public static final Item DESERT_ROOT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.f).build())), "desert_root");
 
 
     public static Item createItem(Item item, Identifier id) {
