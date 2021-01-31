@@ -2,13 +2,17 @@ package net.oriondev.nowhere.registries;
 
 import com.google.common.collect.Lists;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.BuiltinBiomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.oriondev.nowhere.Nowhere;
 import net.oriondev.nowhere.worldgen.BiomeData;
 import net.oriondev.nowhere.worldgen.NowhereBiome;
 import net.oriondev.nowhere.worldgen.WorldGenRegistryHelper;
@@ -36,11 +40,10 @@ public class BiomeRegistry {
     public static void init() {
     }
 
-    public static void addBiomeEntries() {
+   public static void addBiomeEntries() {
         for (BiomeData biomeData : NowhereBiome.biomeData) {
-            if (biomeData.getBiomeWeight() > 0) {
-                OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight() / 10.0);
-
+            if (biomeData.getBiomeWeight() > 1) {
+                OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight() / 100.0);
             }
         }
     }

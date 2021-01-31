@@ -26,6 +26,7 @@ public class BlockRegistry {
     public static final Block NECROTIC_DUST = createLifelessSands("necrotic_dust");
     public static final Block NECROTIC_LOG = createLogs("necrotic_log");
     public static final Block SCRAP_HEAP = createMetalScraps("scrap_heap");
+    public static final Block DUST_STONE = createStones("dust_stone");
 
     static Block createLogs(String id) {
         Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(2.5f,2.5f));
@@ -35,7 +36,7 @@ public class BlockRegistry {
     }
     static Block createSoils(String id){
         Block createBlock = new Block(
-            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SOUL_SOIL).strength(0.5f,0.5f).ticksRandomly().breakByTool(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SOUL_SOIL).strength(0.5f,0.5f).breakByTool(
                 FabricToolTags.SHOVELS));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
@@ -51,7 +52,7 @@ public class BlockRegistry {
     }
         static Block createSands(String id){
         Block createBlock = new Block(
-            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SAND).strength(0.2f).strength(0.5f, 0.1f).ticksRandomly().breakByTool(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SAND).strength(0.2f).strength(0.5f, 0.1f).breakByTool(
                 FabricToolTags.SHOVELS));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
@@ -59,7 +60,7 @@ public class BlockRegistry {
     }
     static Block createLifelessSands(String id){
         Block createBlock = new Block(
-            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SAND).strength(0.2f).strength(0.5f, 0.1f).ticksRandomly().breakByTool(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SAND).strength(0.2f).strength(0.5f, 0.1f).breakByTool(
                 FabricToolTags.SHOVELS));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
@@ -67,7 +68,7 @@ public class BlockRegistry {
     }
     static Block createMetalScraps(String id){
         Block createBlock = new Block(
-            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(5,5).ticksRandomly().breakByTool(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(5,5).breakByTool(
                 FabricToolTags.PICKAXES));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
@@ -76,6 +77,14 @@ public class BlockRegistry {
     static Block createFlower(String id) {
         Block createBlock = new FlowerBlock(
             StatusEffects.SATURATION, 7, FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).strength(0.0f).noCollision().nonOpaque());
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+    static Block createStones(String id){
+        Block createBlock = new Block(
+            FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(1,1).breakByTool(
+                FabricToolTags.PICKAXES));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
         return createBlock;
