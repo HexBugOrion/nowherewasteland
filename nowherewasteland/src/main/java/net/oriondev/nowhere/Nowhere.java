@@ -63,7 +63,7 @@ public class Nowhere implements ModInitializer {
 		System.out.println("Biome Setup Complete");
 	}
 
-
+	//SUCH POO
 	private void biomeSetup() {
 		System.out.println("Registering Biomes...");
 		BiomeRegistry.init();
