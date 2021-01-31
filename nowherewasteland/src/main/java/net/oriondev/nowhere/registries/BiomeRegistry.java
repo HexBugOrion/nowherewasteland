@@ -2,6 +2,7 @@ package net.oriondev.nowhere.registries;
 
 import com.google.common.collect.Lists;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -39,6 +40,8 @@ public class BiomeRegistry {
 
     public static void init() {
     }
+
+
 
    public static void addBiomeEntries() {
         for (BiomeData biomeData : NowhereBiome.biomeData) {
