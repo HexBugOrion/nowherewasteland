@@ -1,0 +1,20 @@
+{
+  "itemGroup.nowhere.nowhere_blocks": "Nowhere Blocks",
+  "itemGroup.nowhere.nowhere_decor": "Nowhere Decor",
+  "itemGroup.nowhere.nowhere_misc": "Nowhere Miscellaneous",
+  "itemGroup.nowhere.nowhere_food": "Nowhere Food",
+
+  "block.nowhere.dust": "Dust",
+  "block.nowhere.packed_dust": "Packed Dust",
+  "block.nowhere.desert_roots": "Desert Roots",
+  "block.nowhere.dried_log": "Dried Log",
+  "block.nowhere.drained_dust": "Drained Dust",
+  "block.nowhere.drained_packed_dust": "Drained Packed Dust",
+  "block.nowhere.necrotic_dust": "Necrotic Dust",
+  "block.nowhere.necrotic_packed_dust": "Necrotic Packed Dust",
+  "block.nowhere.necrotic_log": "Necrotic Log",
+
+  "item.nowhere.scrapmetal": "Scrapmetal",
+  "item.nowhere.desert_root": "Desert Root"
+
+}

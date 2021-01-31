@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "nowhere:block/necrotic_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "nowhere:block/necrotic_log"
+    },
+    "axis=z": {
+      "model": "nowhere:block/necrotic_log",
+      "x": 90
+    }
+  }
+}

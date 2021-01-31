@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "nowhere:block/drained_dust"
+    }
+  }
+}

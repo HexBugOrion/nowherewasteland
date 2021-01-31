@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "nowhere",
+  "version": "${version}",
+
+  "name": "Nowhere: Wasteland Adventure",
+  "description": "The plane of the Lost (Credit for registry code and such goes to CorgiTaco and AOCAWOL)",
+  "authors": [
+    "OrionHexDev"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.oriondev.nowhere.Nowhere"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "accessWidener": "nowhere.aw"
+}
