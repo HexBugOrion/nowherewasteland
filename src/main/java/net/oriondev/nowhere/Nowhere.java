@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.BiomeKeys;
 import net.oriondev.nowhere.registries.BiomeRegistry;
 import net.oriondev.nowhere.registries.BlockRegistry;
 import net.oriondev.nowhere.registries.ItemRegistry;

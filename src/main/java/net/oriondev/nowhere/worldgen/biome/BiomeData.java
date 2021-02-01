@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.util.collection.WeightedList;
 import net.minecraft.world.biome.Biome;
 
-
+@SuppressWarnings("deprecated")
 public class BiomeData {
 
     private final Biome biome;

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("deprecated")
 public class NowhereBiome {
     public static final List<NowhereBiome> NOWHERE_BIOMES = new ArrayList<>();
     private final Biome biome;
