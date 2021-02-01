@@ -63,11 +63,6 @@ public class NowhereBiome {
         return BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.BEACH);
     }
 
-
-    public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD};
-    }
-
     public OverworldClimate getBiomeType() {
         return OverworldClimate.TEMPERATE;
     }

@@ -26,7 +26,7 @@ import java.util.Comparator;
 
 public class Nowhere implements ModInitializer {
 
-	public static String MOD_ID = "nowhere";
+	public static final String MOD_ID = "nowhere";
 	public static String FILE_PATH = "your-home";
 	public static final ItemGroup NOWHERE_BLOCKS = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nowhere_blocks"), () -> new ItemStack(ItemRegistry.DUST));
 	public static final ItemGroup NOWHERE_DECOR = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nowhere_decor"), () -> new ItemStack(ItemRegistry.DESERT_ROOTS));
@@ -69,6 +69,7 @@ public class Nowhere implements ModInitializer {
 		BiomeRegistry.init();
 		BiomeRegistry.biomeList.sort(Comparator.comparingInt(BiomeRegistry.PreserveBiomeOrder::getOrderPosition));
 		BiomeRegistry.biomeList.forEach(preserveBiomeOrder -> Registry.register(BuiltinRegistries.BIOME, new Identifier(MOD_ID, preserveBiomeOrder.getId()), preserveBiomeOrder.getBiome()));
+		BiomeRegistry.addBiomeNumericalIDs();
 		System.out.println("Biomes Registered!");
 	}
 
