@@ -2,7 +2,7 @@ package net.oriondev.nowhere.worldgen.biome.jsongen;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.oriondev.nowhere.worldgen.NowhereBiome;
+import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
 import net.oriondev.nowhere.worldgen.biome.NowhereSubBiome;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package net.oriondev.nowhere.worldgen;
+package net.oriondev.nowhere.worldgen.biome;
 
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;

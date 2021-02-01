@@ -10,7 +10,7 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import net.oriondev.nowhere.registries.BlockRegistry;
-import net.oriondev.nowhere.worldgen.NowhereBiome;
+import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
 import net.oriondev.nowhere.worldgen.WorldGenRegistryHelper;
 import net.oriondev.nowhere.worldgen.biome.BiomeUtilities;
 
@@ -47,11 +47,6 @@ public class DunesBiome extends NowhereBiome {
     @Override
     public int getWeight() {
         return 6;
-    }
-
-    @Override
-    public Object getBiomeDictionary() {
-        return null;
     }
 
     @Override

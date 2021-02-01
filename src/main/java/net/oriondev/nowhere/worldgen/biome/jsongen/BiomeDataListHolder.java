@@ -1,8 +1,8 @@
 package net.oriondev.nowhere.worldgen.biome.jsongen;
 
 import net.minecraft.util.registry.BuiltinRegistries;
-import net.oriondev.nowhere.worldgen.BiomeData;
-import net.oriondev.nowhere.worldgen.NowhereBiome;
+import net.oriondev.nowhere.worldgen.biome.BiomeData;
+import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
 
 import java.util.Comparator;
 import java.util.List;
@@ -24,8 +24,6 @@ public class BiomeDataListHolder {
         for (NowhereBiome nowhereBiome : NowhereBiome.NOWHERE_BIOMES) {
             NowhereBiome.biomeData.add(new BiomeData(nowhereBiome.getBiome(), nowhereBiome.getWeight(), nowhereBiome.getBiomeType(), nowhereBiome.getHills(), nowhereBiome.getEdge(), nowhereBiome.getBeach(), nowhereBiome.getRiver()));
         }
-
-        //Sort entries alphabetically
         NowhereBiome.biomeData.sort(
             Comparator.comparing(data -> BuiltinRegistries.BIOME.getId(data.getBiome()).toString()));
     }

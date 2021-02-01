@@ -7,7 +7,7 @@ import net.minecraft.util.collection.WeightedList;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
 import net.oriondev.nowhere.Nowhere;
-import net.oriondev.nowhere.worldgen.BiomeData;
+import net.oriondev.nowhere.worldgen.biome.BiomeData;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -33,7 +33,6 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                         object2.addProperty("name", biomeEntryKey.toString());
                         object2.addProperty("weight", biomeEntry.weight);
                         weightedListArray.add(object2);
-                    } else {
                     }
                 }
             }

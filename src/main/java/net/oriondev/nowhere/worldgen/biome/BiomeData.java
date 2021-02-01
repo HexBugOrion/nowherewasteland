@@ -1,8 +1,9 @@
-package net.oriondev.nowhere.worldgen;
+package net.oriondev.nowhere.worldgen.biome;
 
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.util.collection.WeightedList;
 import net.minecraft.world.biome.Biome;
+
 
 public class BiomeData {
 
