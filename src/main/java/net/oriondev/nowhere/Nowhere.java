@@ -1,5 +1,6 @@
 package net.oriondev.nowhere;
 
+import com.google.common.eventbus.Subscribe;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -23,6 +24,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
 
+
 public class Nowhere implements ModInitializer {
 
 	public static final String MOD_ID = "nowhere";
@@ -35,7 +37,6 @@ public class Nowhere implements ModInitializer {
 	public static final Path CONFIG_PATH = new File(String.valueOf(FabricLoader.getInstance().getConfigDirectory().toPath().resolve(MOD_ID))).toPath();
 
 
-
 	@Override
 	public void onInitialize() {
 		File dir = new File(CONFIG_PATH.toString());
@@ -45,7 +46,6 @@ public class Nowhere implements ModInitializer {
 		System.out.println("Registering Nowhere...");
 		NowhereRegistries.registerStuff();
 		NowhereWorldRegistries.registerWorldStuff();
-		biomeSetup();
 		commonSetup();
 		clearRAM();
 		System.out.println("Registered Nowhere, welcome... to your last stop...");
@@ -61,17 +61,6 @@ public class Nowhere implements ModInitializer {
 		SubBiomeDataListHolder.fillBiomeLists();
 		System.out.println("Biome Setup Complete");
 	}
-
-	//SUCH POO
-	private void biomeSetup() {
-		System.out.println("Registering Biomes...");
-		BiomeRegistry.init();
-		BiomeRegistry.biomeList.sort(Comparator.comparingInt(BiomeRegistry.PreserveBiomeOrder::getOrderPosition));
-		BiomeRegistry.biomeList.forEach(preserveBiomeOrder -> Registry.register(BuiltinRegistries.BIOME, new Identifier(MOD_ID, preserveBiomeOrder.getId()), preserveBiomeOrder.getBiome()));
-		BiomeRegistry.addBiomeNumericalIDs();
-		System.out.println("Biomes Registered!");
-	}
-
 
 	public static void clearRAM(){
 		System.out.println("Clearing MC Ram");
