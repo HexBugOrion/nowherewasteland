@@ -1,9 +1,7 @@
 package net.oriondev.nowhere;
 
-import com.google.common.eventbus.Subscribe;
+
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
@@ -11,19 +9,13 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.carver.Carver;
 import net.oriondev.nowhere.registries.BiomeRegistry;
 import net.oriondev.nowhere.registries.BlockRegistry;
 import net.oriondev.nowhere.registries.ItemRegistry;
-import net.oriondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
-import net.oriondev.nowhere.worldgen.biome.jsongen.JsonGenBiomes;
-import net.oriondev.nowhere.worldgen.biome.jsongen.SubBiomeDataListHolder;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.util.Comparator;
-
 
 public class Nowhere implements ModInitializer {
 
@@ -46,22 +38,10 @@ public class Nowhere implements ModInitializer {
 		System.out.println("Registering Nowhere...");
 		NowhereRegistries.registerStuff();
 		NowhereWorldRegistries.registerWorldStuff();
-		commonSetup();
 		clearRAM();
 		System.out.println("Registered Nowhere, welcome... to your last stop...");
 
 	}
-
-	private void commonSetup(){
-		System.out.println("Setting up Biomes...");
-		JsonGenBiomes.handleNowhereBiomeJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
-		JsonGenBiomes.handleNowhereSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
-		BiomeRegistry.addBiomeEntries();
-		BiomeDataListHolder.fillBiomeLists();
-		SubBiomeDataListHolder.fillBiomeLists();
-		System.out.println("Biome Setup Complete");
-	}
-
 	public static void clearRAM(){
 		System.out.println("Clearing MC Ram");
 		FILE_PATH = null;
@@ -85,12 +65,8 @@ public class Nowhere implements ModInitializer {
 	public static class NowhereWorldRegistries{
 
 		public static void registerWorldStuff(){
-
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();
-			BiomeRegistry.biomeList.sort(Comparator.comparingInt(BiomeRegistry.PreserveBiomeOrder::getOrderPosition));
-			BiomeRegistry.biomeList.forEach(preserveBiomeOrder -> Registry.register(BuiltinRegistries.BIOME, new Identifier(MOD_ID, preserveBiomeOrder.getId()), preserveBiomeOrder.getBiome()));
-			BiomeRegistry.addBiomeNumericalIDs();
 			System.out.println("Biomes Registered!");
 		}
 	}

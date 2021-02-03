@@ -1,95 +1,41 @@
 package net.oriondev.nowhere.registries;
 
-import com.google.common.collect.Lists;
+import com.google.common.base.Optional;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BuiltinBiomes;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.oriondev.nowhere.worldgen.biome.BiomeData;
-import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
-import net.oriondev.nowhere.worldgen.WorldGenRegistryHelper;
-import net.oriondev.nowhere.worldgen.biome.biome_list.DummySubBiome;
+import net.minecraft.world.biome.BiomeKeys;
+import net.oriondev.nowhere.Nowhere;
 import net.oriondev.nowhere.worldgen.biome.biome_list.DunesBiome;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 public class BiomeRegistry {
-
-    public static List<PreserveBiomeOrder> biomeList = new ArrayList<>();
-
-    //get biomed, dummy
-    public static Biome DUMMY_BIOME = WorldGenRegistryHelper.createBiome("dummy", new DummySubBiome().getBiome(), 2000);
-    //actual biomes
-    public static Biome NOWHERE_DUNES = WorldGenRegistryHelper.createBiome("nowheredunes", new DunesBiome().getBiome(), 2);
-
-
-
-
-    public static void init() {
+    public static int getSkyColor(float temperature) {
+        float f = temperature / 3.0F;
+        f = MathHelper.clamp(f, -1.0F, 1.0F);
+        return MathHelper.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
     }
 
+    public static RegistryKey<Biome> DUNES;
 
-
-   public static void addBiomeEntries() {
-        for (BiomeData biomeData : NowhereBiome.biomeData) {
-            if (biomeData.getBiomeWeight() > 1) {
-                OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight() / 100.0);
-            }
-        }
-    }
-
-    public static void addFeatureToBiome(Biome biome, GenerationStep.Feature feature, ConfiguredFeature<?, ?> configuredFeature) {
-        convertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
-        while (biomeFeatures.size() <= feature.ordinal()) {
-            biomeFeatures.add(Lists.newArrayList());
-        }
-        biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
-    }
-
-    private static void convertImmutableFeatures(Biome biome) {
-        biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(
-            Lists::newArrayList).collect(Collectors.toList());
-    }
-
-    public static void addBiomeNumericalIDs() {
-        for (PreserveBiomeOrder biome : biomeList) {
-            Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome.getBiome());
-            if (key.isPresent())
-                key.ifPresent(biomeRegistryKey -> BuiltinBiomes.BY_RAW_ID.put(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
-        }
+    public static void init(){
+        Biome dunes = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "dunes"), DunesBiome.create());
+        DUNES = BuiltinRegistries.BIOME.getKey(dunes).get();
+        OverworldBiomes.addHillsBiome(BiomeKeys.DESERT, DUNES, 100);
+        OverworldBiomes.addHillsBiome(BiomeKeys.DESERT_HILLS, DUNES, 100);
+        OverworldBiomes.addHillsBiome(BiomeKeys.DESERT_LAKES, DUNES, 100);
+        OverworldBiomes.addHillsBiome(BiomeKeys.SAVANNA, DUNES, 100);
+        OverworldBiomes.addHillsBiome(BiomeKeys.SAVANNA_PLATEAU, DUNES, 100);
+        OverworldBiomes.addHillsBiome(BiomeKeys.SHATTERED_SAVANNA_PLATEAU, DUNES, 100);
+        OverworldBiomes.addHillsBiome(BiomeKeys.SHATTERED_SAVANNA, DUNES, 100);
 
     }
-
-    public static class PreserveBiomeOrder {
-        private final Biome biome;
-        private final int orderPosition;
-        private final String id;
-
-        public PreserveBiomeOrder(Biome biome, int orderPosition, String id) {
-            this.biome = biome;
-            this.orderPosition = orderPosition;
-            this.id = id;
-        }
-
-        public Biome getBiome() {
-            return biome;
-        }
-
-        public int getOrderPosition() {
-            return orderPosition;
-        }
-
-        public String getId() {
-            return id;
-        }
+    public static boolean isBiome(Optional<RegistryKey<Biome>> optional) {
+        return Objects.equals(optional, Optional.of(DUNES));
     }
 }
