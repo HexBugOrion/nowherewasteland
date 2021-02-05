@@ -88,6 +88,9 @@ public class Nowhere implements ModInitializer {
 
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();
+			BiomeRegistry.biomeList.sort(Comparator.comparingInt(BiomeRegistry.PreserveBiomeOrder::getOrderPosition));
+			BiomeRegistry.biomeList.forEach(preserveBiomeOrder -> Registry.register(BuiltinRegistries.BIOME, new Identifier(MOD_ID, preserveBiomeOrder.getId()), preserveBiomeOrder.getBiome()));
+			BiomeRegistry.addBiomeNumericalIDs();
 			System.out.println("Biomes Registered!");
 		}
 	}
