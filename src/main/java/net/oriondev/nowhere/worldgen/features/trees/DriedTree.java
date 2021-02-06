@@ -18,9 +18,9 @@ import net.oriondev.nowhere.registries.BlockRegistry;
 
 import java.util.Random;
 
-public class SmallTreeThing extends Feature<DefaultFeatureConfig> {
+public class DriedTree extends Feature<DefaultFeatureConfig> {
 
-    public SmallTreeThing(Codec<DefaultFeatureConfig> configIn) {
+    public DriedTree(Codec<DefaultFeatureConfig> configIn) {
         super(configIn);
     }
 

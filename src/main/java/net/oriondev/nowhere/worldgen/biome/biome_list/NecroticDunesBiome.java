@@ -13,9 +13,9 @@ import net.oriondev.nowhere.registries.BlockRegistry;
 import net.oriondev.nowhere.worldgen.WorldGenRegistryHelper;
 import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
 
-public class DrainedDunes extends NowhereBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistryHelper.createConfiguredSurfaceBuilder("drained_dunes", new ConfiguredSurfaceBuilder<>(
-        SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BlockRegistry.DRAINED_DUST.getDefaultState(), BlockRegistry.DRAINED_PACKED_DUST.getDefaultState(), BlockRegistry.DRAINED_PACKED_DUST.getDefaultState())));
+public class NecroticDunesBiome extends NowhereBiome {
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistryHelper.createConfiguredSurfaceBuilder("necrotic_dunes", new ConfiguredSurfaceBuilder<>(
+        SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BlockRegistry.NECROTIC_DUST.getDefaultState(), BlockRegistry.NECROTIC_PACKED_DUST.getDefaultState(), BlockRegistry.NECROTIC_PACKED_DUST.getDefaultState())));
     static final Biome.Precipitation PRECIPATATION = Biome.Precipitation.NONE;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 1.0F;
@@ -24,13 +24,13 @@ public class DrainedDunes extends NowhereBiome {
     static final float DOWNFALL = 0.0F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final int SKY_COLOR = 16757694;
+    static final int SKY_COLOR = 16748154;
 
     static final Biome.Weather WEATHER = new Biome.Weather(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
-    public DrainedDunes() {
+    public NecroticDunesBiome() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(16769730).skyColor(SKY_COLOR).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
@@ -54,6 +54,5 @@ public class DrainedDunes extends NowhereBiome {
     }
 
     static {
-
     }
 }

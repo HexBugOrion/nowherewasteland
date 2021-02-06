@@ -4,8 +4,7 @@
   "package": "net.oriondev.nowhere.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "plant.PlantMixin",
-    "world.GenerationOptionsMixin"
+    "plant.PlantMixin"
   ],
   "client": [],
   "server": [],

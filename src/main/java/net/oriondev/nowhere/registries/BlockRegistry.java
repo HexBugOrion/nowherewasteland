@@ -30,6 +30,7 @@ public class BlockRegistry {
     public static final Block DUST_STONE = createStones("dust_stone");
     public static final Block SALT_BLOCK = createLifelessSands("salt_block");
     public static final Block SALT_HEAP = createLifelessSands("salt_heap");
+    public static final Block CRACKED_SOIL = createCrackedSoils("cracked_soil");
 
 
     static Block createLogs(String id) {
@@ -42,6 +43,14 @@ public class BlockRegistry {
         Block createBlock = new Block(
             FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.SOUL_SOIL).strength(0.5f,0.5f).breakByTool(
                 FabricToolTags.SHOVELS));
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+    static Block createCrackedSoils(String id){
+        Block createBlock = new Block(
+            FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.BASALT).strength(0.9f,0.9f).breakByTool(
+                FabricToolTags.PICKAXES));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
         return createBlock;
