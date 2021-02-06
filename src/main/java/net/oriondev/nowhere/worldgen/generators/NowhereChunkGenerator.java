@@ -31,12 +31,12 @@ public class NowhereChunkGenerator {
     private final int bedrockFloorY;
     private final int seaLevel;
     private final boolean mobGenerationDisabled;
-    public static final RegistryKey<NowhereChunkGenerator> OVERWORLD;
-    public static final RegistryKey<NowhereChunkGenerator> AMPLIFIED;
-    public static final RegistryKey<NowhereChunkGenerator> NETHER;
-    public static final RegistryKey<NowhereChunkGenerator> END;
-    public static final RegistryKey<NowhereChunkGenerator> CAVES;
-    public static final RegistryKey<NowhereChunkGenerator> FLOATING_ISLANDS;
+    public static final RegistryKey<ChunkGeneratorSettings> OVERWORLD;
+    public static final RegistryKey<ChunkGeneratorSettings> AMPLIFIED;
+    public static final RegistryKey<ChunkGeneratorSettings> NETHER;
+    public static final RegistryKey<ChunkGeneratorSettings> END;
+    public static final RegistryKey<ChunkGeneratorSettings> CAVES;
+    public static final RegistryKey<ChunkGeneratorSettings> FLOATING_ISLANDS;
     private static final NowhereChunkGenerator INSTANCE;
 
     private NowhereChunkGenerator(StructuresConfig structuresConfig, GenerationShapeConfig generationShapeConfig, BlockState defaultBlock, BlockState defaultFluid, int bedrockCeilingY, int bedrockFloorY, int seaLevel, boolean mobGenerationDisabled) {
@@ -87,7 +87,7 @@ public class NowhereChunkGenerator {
         return Objects.equals(this, BuiltinRegistries.CHUNK_GENERATOR_SETTINGS.get(registryKey));
     }
 
-    private static NowhereChunkGenerator register(RegistryKey<NowhereChunkGenerator> registryKey, NowhereChunkGenerator settings) {
+    private static NowhereChunkGenerator register(RegistryKey<ChunkGeneratorSettings> registryKey, NowhereChunkGenerator settings) {
         BuiltinRegistries.add(BuiltinRegistries.CHUNK_GENERATOR_SETTINGS, registryKey.getValue(), settings);
         return settings;
     }
