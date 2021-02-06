@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class NowhereChunkGenerator {
+public class NowhereChunkGenerator extends NoiseChunkGenerator {
     public static final Codec<NowhereChunkGenerator> CODEC = RecordCodecBuilder.create((instance) -> {
         return instance.group(StructuresConfig.CODEC.fieldOf("structures").forGetter(NowhereChunkGenerator::getStructuresConfig), GenerationShapeConfig.CODEC.fieldOf("noise").forGetter(NowhereChunkGenerator::getGenerationShapeConfig), BlockState.CODEC.fieldOf("default_block").forGetter(NowhereChunkGenerator::getDefaultBlock), BlockState.CODEC.fieldOf("default_fluid").forGetter(NowhereChunkGenerator::getDefaultFluid), Codec.intRange(-20, 276).fieldOf("bedrock_roof_position").forGetter(NowhereChunkGenerator::getBedrockCeilingY), Codec.intRange(-20, 276).fieldOf("bedrock_floor_position").forGetter(NowhereChunkGenerator::getBedrockFloorY), Codec.intRange(0, 255).fieldOf("sea_level").forGetter(NowhereChunkGenerator::getSeaLevel), Codec.BOOL.fieldOf("disable_mob_generation").forGetter(NowhereChunkGenerator::isMobGenerationDisabled)).apply(instance, NowhereChunkGenerator::new);
     });
