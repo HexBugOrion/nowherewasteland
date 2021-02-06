@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.oriondev.nowhere.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "plant.PlantMixin",
+    "world.GenerationOptionsMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

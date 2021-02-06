@@ -15,8 +15,13 @@
   "block.nowhere.necrotic_log": "Necrotic Log",
   "block.nowhere.scrap_heap": "Scrap Heap",
   "block.nowhere.dust_stone": "Dust Stone",
+  "block.nowhere.salt_block": "Salt Block",
+  "block.nowhere.salt_heap": "Salt Heap",
 
   "item.nowhere.scrapmetal": "Scrap Metal",
-  "item.nowhere.desert_root": "Desert Root"
+  "item.nowhere.desert_root": "Desert Root",
+  "item.nowhere.steel_ingot": "Steel Ingot",
+  "item.nowhere.steel_nugget": "Steel Nugget",
+  "item.nowhere.salt": "Salt"
 
 }

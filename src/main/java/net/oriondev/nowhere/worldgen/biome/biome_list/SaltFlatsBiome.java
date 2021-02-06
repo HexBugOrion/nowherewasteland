@@ -1,6 +1,5 @@
 package net.oriondev.nowhere.worldgen.biome.biome_list;
 
-
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.collection.WeightedList;
@@ -10,16 +9,15 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import net.oriondev.nowhere.registries.BlockRegistry;
-import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
 import net.oriondev.nowhere.worldgen.WorldGenRegistryHelper;
-import net.oriondev.nowhere.worldgen.biome.BiomeUtilities;
+import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
 
-public class DunesBiome extends NowhereBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistryHelper.createConfiguredSurfaceBuilder("dunes", new ConfiguredSurfaceBuilder<>(
-        SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BlockRegistry.DUST.getDefaultState(), BlockRegistry.PACKED_DUST.getDefaultState(), BlockRegistry.PACKED_DUST.getDefaultState())));
+public class SaltFlatsBiome extends NowhereBiome {
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistryHelper
+        .createConfiguredSurfaceBuilder("salt_flats", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BlockRegistry.SALT_BLOCK.getDefaultState(), BlockRegistry.PACKED_DUST.getDefaultState(), BlockRegistry.PACKED_DUST.getDefaultState())));
     static final Biome.Precipitation PRECIPATATION = Biome.Precipitation.NONE;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
-    static final float DEPTH = 1.0F;
+    static final float DEPTH = 0.3F;
     static final float SCALE = 0.0F;
     static final float TEMPERATURE = 1.2F;
     static final float DOWNFALL = 0.0F;
@@ -31,7 +29,7 @@ public class DunesBiome extends NowhereBiome {
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
-    public DunesBiome() {
+    public SaltFlatsBiome() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(16769730).skyColor(SKY_COLOR).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 

@@ -1,5 +1,7 @@
 package net.oriondev.nowhere.registries;
 
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.FoodComponents;
@@ -27,15 +29,18 @@ public class ItemRegistry {
     public static final Item SCRAP_HEAP = createItem(new BlockItem(BlockRegistry.SCRAP_HEAP, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "scrap_heap");
     public static final Item DESERT_ROOTS = createItem(new BlockItem(BlockRegistry.DESERT_ROOTS, new Item.Settings().group(Nowhere.NOWHERE_DECOR)), "desert_roots");
     public static final Item DUST_STONE = createItem(new BlockItem(BlockRegistry.DUST_STONE, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "dust_stone");
+    public static final Item SCRAP_PILE = createItem(new BlockItem(BlockRegistry.SCRAP_PILE, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "scrap_pile");
+    public static final Item SAlT_BLOCK = createItem(new BlockItem(BlockRegistry.SALT_BLOCK, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "salt_block");
+    public static final Item SALT_HEAP = createItem(new BlockItem(BlockRegistry.SALT_HEAP, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "salt_heap");
 
     //items
     public static final Item SCRAPMETAL = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "scrapmetal");
     public static final Item STEEL_INGOT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "steel_ingot");
-    public static final Item TITANSTEEL = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "titansteel");
-    public static final Item SAPPHIRE = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "sapphire");
+    public static final Item STEEL_NUGGET = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "steel_nugget");
+    public static final Item SALT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "salt");
 
     //food
-    public static final Item DESERT_ROOT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.f).build())), "desert_root");
+    public static final Item DESERT_ROOT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.f).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20*5), 0.05f).statusEffect(new StatusEffectInstance(StatusEffects.POISON, 20*7), 0.01f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20*20), 0.10f).build())), "desert_root");
 
     //tools
 

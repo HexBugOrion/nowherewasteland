@@ -26,7 +26,11 @@ public class BlockRegistry {
     public static final Block NECROTIC_DUST = createLifelessSands("necrotic_dust");
     public static final Block NECROTIC_LOG = createLogs("necrotic_log");
     public static final Block SCRAP_HEAP = createMetalScraps("scrap_heap");
+    public static final Block SCRAP_PILE = createMetalScraps("scrap_pile");
     public static final Block DUST_STONE = createStones("dust_stone");
+    public static final Block SALT_BLOCK = createLifelessSands("salt_block");
+    public static final Block SALT_HEAP = createLifelessSands("salt_heap");
+
 
     static Block createLogs(String id) {
         Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(2.5f,2.5f));

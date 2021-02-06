@@ -1,0 +1,9 @@
+{
+  "replace": "false",
+  "values": [
+    "nowhere:dust",
+    "nowhere:packed_dust",
+    "minecraft:dirt",
+    "minecraft:coarse_dirt"
+  ]
+}
