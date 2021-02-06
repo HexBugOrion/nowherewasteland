@@ -17,6 +17,6 @@ public class GenerationOptionsMixin {
      */
     @Overwrite
     public static NoiseChunkGenerator createOverworldGenerator(Registry<Biome> biomeRegistry, Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
-        return NowhereChunkGenerator();
+        return new NowhereChunkGenerator();
     }
 }

@@ -39,7 +39,10 @@ public class NowhereChunkGenerator extends NoiseChunkGenerator {
     public static final RegistryKey<ChunkGeneratorSettings> FLOATING_ISLANDS;
     private static final NowhereChunkGenerator INSTANCE;
 
-    private NowhereChunkGenerator(StructuresConfig structuresConfig, GenerationShapeConfig generationShapeConfig, BlockState defaultBlock, BlockState defaultFluid, int bedrockCeilingY, int bedrockFloorY, int seaLevel, boolean mobGenerationDisabled) {
+    public NowhereChunkGenerator(StructuresConfig structuresConfig,
+        GenerationShapeConfig generationShapeConfig, BlockState defaultBlock,
+        BlockState defaultFluid, int bedrockCeilingY, int bedrockFloorY, int seaLevel,
+        boolean mobGenerationDisabled) {
         this.structuresConfig = structuresConfig;
         this.generationShapeConfig = generationShapeConfig;
         this.defaultBlock = defaultBlock;
