@@ -46,3 +46,4 @@ accessible method net/minecraft/item/AxeItem <init> (Lnet/minecraft/item/ToolMat
 accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
 accessible field net/minecraft/world/gen/carver/Carver alwaysCarvableBlocks Ljava/util/Set;
 mutable field net/minecraft/world/gen/carver/Carver alwaysCarvableBlocks Ljava/util/Set;
+extendable method net/minecraft/client/world/GeneratorType <init> (Ljava/lang/String;)V

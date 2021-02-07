@@ -1,6 +1,7 @@
 package net.oriondev.nowhere;
 
 import com.google.common.eventbus.Subscribe;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -8,24 +9,36 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.world.GeneratorType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.chunk.*;
+import net.oriondev.nowhere.mixin.world.GeneratorTypeMixin;
 import net.oriondev.nowhere.registries.BiomeRegistry;
 import net.oriondev.nowhere.registries.BlockRegistry;
 import net.oriondev.nowhere.registries.ItemRegistry;
+import net.oriondev.nowhere.worldgen.NowhereWorldtype;
 import net.oriondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
 import net.oriondev.nowhere.worldgen.biome.jsongen.JsonGenBiomes;
 import net.oriondev.nowhere.worldgen.biome.jsongen.SubBiomeDataListHolder;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.Optional;
 
 
 public class Nowhere implements ModInitializer {
+
+	public static Registry<Biome> REGISTRY;
+
+
+	private static NowhereWorldtype worldType;
 
 	public static final String MOD_ID = "nowhere";
 	public static String FILE_PATH = "your-home";
@@ -49,6 +62,9 @@ public class Nowhere implements ModInitializer {
 		commonSetup();
 		clearRAM();
 		System.out.println("Registered Nowhere, welcome... to your last stop...");
+		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+			worldType = new NowhereWorldtype("nowhere");
+		}
 
 	}
 
@@ -85,7 +101,6 @@ public class Nowhere implements ModInitializer {
 	public static class NowhereWorldRegistries{
 
 		public static void registerWorldStuff(){
-
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();
 			System.out.println("Biomes Registered!");

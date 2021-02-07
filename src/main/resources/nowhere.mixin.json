@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "plant.PlantMixin",
-    "world.GenerationOptionsMixin"
+    "world.GeneratorTypeMixin"
   ],
   "client": [],
   "server": [],
