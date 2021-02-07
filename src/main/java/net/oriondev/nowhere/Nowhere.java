@@ -20,6 +20,7 @@ import net.minecraft.world.gen.chunk.*;
 import net.oriondev.nowhere.mixin.world.GeneratorTypeMixin;
 import net.oriondev.nowhere.registries.BiomeRegistry;
 import net.oriondev.nowhere.registries.BlockRegistry;
+import net.oriondev.nowhere.registries.FeatureRegistry;
 import net.oriondev.nowhere.registries.ItemRegistry;
 import net.oriondev.nowhere.worldgen.NowhereWorldtype;
 import net.oriondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
@@ -101,6 +102,9 @@ public class Nowhere implements ModInitializer {
 	public static class NowhereWorldRegistries{
 
 		public static void registerWorldStuff(){
+			System.out.println("Registering Biomes...");
+			FeatureRegistry.init();
+			System.out.println("Biomes Registered!");
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();
 			System.out.println("Biomes Registered!");

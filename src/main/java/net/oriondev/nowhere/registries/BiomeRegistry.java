@@ -24,8 +24,6 @@ import java.util.stream.Collectors;
 
 public class BiomeRegistry {
 
-    //get biomed, dummy
-    public static Biome DUMMY_BIOME = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "dummy"), new DummySubBiome().getBiome());
     //actual biomes
     public static Biome NOWHERE_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_dunes"), new DunesBiome().getBiome());
     public static Biome NOWHERE_SALT_FLATS = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_saltflats"), new SaltFlatsBiome().getBiome());
