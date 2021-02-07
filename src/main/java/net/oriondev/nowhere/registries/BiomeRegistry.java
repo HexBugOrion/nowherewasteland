@@ -31,9 +31,7 @@ public class BiomeRegistry {
     public static Biome NOWHERE_SALT_FLATS = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_saltflats"), new SaltFlatsBiome().getBiome());
     public static Biome NOWHERE_DRAINED_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_drained_dunes"), new DrainedDunes().getBiome());
     public static Biome NOWHERE_NECROTIC_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_necrotic_dunes"), new NecroticDunes().getBiome());
-
-
-
+    public static Biome NOWHERE_SOLAR_VALLEY = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_solar_valley"), new SolarValleyBiome().getBiome());
 
     public static void init() {
     }

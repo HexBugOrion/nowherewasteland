@@ -10,8 +10,8 @@ import net.minecraft.world.biome.BuiltinBiomes;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.oriondev.nowhere.Nowhere;
 
-public class NowhereBiomeSource extends BiomeSource {
-    public static Codec<NowhereBiomeSource> CODEC =  RecordCodecBuilder.create((instance) -> {
+public class NowhereBiomeSource /*extends BiomeSource*/ {
+    /*public static Codec<NowhereBiomeSource> CODEC =  RecordCodecBuilder.create((instance) -> {
         return instance.group(RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((source) -> source.biomeRegistry),
             Codec.LONG.fieldOf("seed").stable().forGetter((source) -> source.seed))
             .apply(instance, instance.stable(NowhereBiomeSource::new));
@@ -24,7 +24,7 @@ public class NowhereBiomeSource extends BiomeSource {
     public NowhereBiomeSource(Registry<Biome> biomeRegistry, long seed) {
         super(BiomeGenData.LOOKUP.keySet().stream().map((k) -> () -> biomeRegistry.getOrThrow(k)));
         this.biomeRegistry = biomeRegistry;
-        this.biomeSampler = NowhereBiomeLayers.build(seed);
+        this.biomeSampler = Nowhere.build(seed);
         this.seed = seed;
 
         Nowhere.REGISTRY = this.biomeRegistry;
@@ -58,4 +58,5 @@ public class NowhereBiomeSource extends BiomeSource {
     public BiomeSource withSeed(long seed) {
         return new NowhereBiomeSource(this.biomeRegistry, seed);
     }
+     */
 }
