@@ -7,16 +7,21 @@ import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FluidBlock;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.world.GeneratorType;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.fluid.FlowableFluid;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.*;
+import net.oriondev.nowhere.extras.fluids.SaltWater;
 import net.oriondev.nowhere.mixin.world.GeneratorTypeMixin;
 import net.oriondev.nowhere.registries.BiomeRegistry;
 import net.oriondev.nowhere.registries.BlockRegistry;
@@ -38,6 +43,12 @@ public class Nowhere implements ModInitializer {
 
 	public static Registry<Biome> REGISTRY;
 
+	public static FlowableFluid STILL_SALTWATER;
+	public static FlowableFluid FLOWING_SALTWATER;
+
+	public static Item SALTWATER_BUCKET;
+
+	public static Block SALTWATER;
 
 	private static NowhereWorldtype worldType;
 
@@ -59,6 +70,14 @@ public class Nowhere implements ModInitializer {
 
 		System.out.println("Registering Nowhere...");
 		NowhereRegistries.registerStuff();
+		System.out.println("Registering Fluids...");
+
+		STILL_SALTWATER = Registry.register(Registry.FLUID, new Identifier(MOD_ID, "saltwater"), new SaltWater.Still());
+		FLOWING_SALTWATER = Registry.register(Registry.FLUID, new Identifier(MOD_ID,"flowing_saltwater"),  new SaltWater.Flowing());
+		SALTWATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(MOD_ID,"saltwater_bucket"), new BucketItem(STILL_SALTWATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+		SALTWATER = Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "saltwater"), new FluidBlock(STILL_SALTWATER, FabricBlockSettings.copy(Blocks.WATER)){});
+
+		System.out.println("Registered Fluids!");
 		NowhereWorldRegistries.registerWorldStuff();
 		commonSetup();
 		clearRAM();

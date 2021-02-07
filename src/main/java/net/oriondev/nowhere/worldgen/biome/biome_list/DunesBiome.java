@@ -56,6 +56,6 @@ public class DunesBiome extends NowhereBiome {
     }
 
     static {
-        NowhereDefaultFeatures.addDriedTrees(GENERATION_SETTINGS);
+       // NowhereDefaultFeatures.addDriedTrees(GENERATION_SETTINGS);
     }
 }

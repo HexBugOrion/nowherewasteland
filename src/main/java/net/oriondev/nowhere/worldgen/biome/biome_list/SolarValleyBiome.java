@@ -11,11 +11,12 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import net.oriondev.nowhere.registries.BlockRegistry;
 import net.oriondev.nowhere.worldgen.WorldGenRegistryHelper;
 import net.oriondev.nowhere.worldgen.biome.NowhereBiome;
+import net.oriondev.nowhere.worldgen.biome.NowhereSurfaceBuilders;
 
 public class SolarValleyBiome extends NowhereBiome {
     static final ConfiguredSurfaceBuilder<?>
         SURFACE_BUILDER = WorldGenRegistryHelper.createConfiguredSurfaceBuilder("solar_valley", new ConfiguredSurfaceBuilder<>(
-        SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BlockRegistry.CRACKED_SOIL.getDefaultState(), BlockRegistry.CRACKED_SOIL.getDefaultState(), BlockRegistry.CRACKED_SOIL.getDefaultState())));
+        NowhereSurfaceBuilders.SOLAR_VALLEY, SurfaceBuilder.GRASS_CONFIG));
     static final Biome.Precipitation PRECIPATATION = Biome.Precipitation.NONE;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 1.0F;

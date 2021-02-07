@@ -8,7 +8,7 @@ public class NowhereDefaultFeatures {
 
     public static void addDriedTrees(GenerationSettings.Builder gen){
 
-        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereConfiguredFeatures.DRIED_TREE);
+        //gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereConfiguredFeatures.DRIED_TREE);
 
     }
 }
