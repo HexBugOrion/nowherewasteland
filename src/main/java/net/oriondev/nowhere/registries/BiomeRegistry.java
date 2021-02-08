@@ -38,8 +38,8 @@ public class BiomeRegistry {
 
     public static void addBiomeEntries() {
         for (BiomeData biomeData : NowhereBiome.biomeData) {
-            if (biomeData.getBiomeWeight() > 1) {
-                OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight() / 100.0);
+            if (biomeData.getBiomeWeight() > 100) {
+                OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight());
             }
         }
     }

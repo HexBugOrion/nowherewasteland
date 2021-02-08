@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "nowhere:block/scrap_heap"
+    "all": "nowhere:block/scrap_pile"
   }
 }
