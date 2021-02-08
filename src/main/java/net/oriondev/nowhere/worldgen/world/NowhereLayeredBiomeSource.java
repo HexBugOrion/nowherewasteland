@@ -57,7 +57,7 @@ public class NowhereLayeredBiomeSource extends BiomeSource {
 
     @Environment(EnvType.CLIENT)
     public BiomeSource withSeed(long seed) {
-        return new VanillaLayeredBiomeSource(seed, this.legacyBiomeInitLayer, this.largeBiomes, this.biomeRegistry);
+        return new NowhereLayeredBiomeSource(seed, this.legacyBiomeInitLayer, this.largeBiomes, this.biomeRegistry);
     }
 
     public Biome getBiomeForNoiseGen(int biomeX, int biomeY, int biomeZ) {
@@ -65,7 +65,6 @@ public class NowhereLayeredBiomeSource extends BiomeSource {
     }
 
     static {
-        BIOMES = ImmutableList
-            .of(BiomeKeys.OCEAN, BiomeKeys.PLAINS, BiomeKeys.DESERT, BiomeKeys.MOUNTAINS, BiomeKeys.FOREST, BiomeKeys.TAIGA, BiomeKeys.SWAMP, BiomeKeys.RIVER, BiomeKeys.FROZEN_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.SNOWY_TUNDRA, BiomeKeys.SNOWY_MOUNTAINS, new RegistryKey[]{});
+        BIOMES = ImmutableList.of(BiomeKeys.OCEAN, BiomeKeys.PLAINS, BiomeKeys.DESERT, BiomeKeys.MOUNTAINS, BiomeKeys.FOREST, BiomeKeys.TAIGA, BiomeKeys.SWAMP, BiomeKeys.RIVER, BiomeKeys.FROZEN_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.SNOWY_TUNDRA, BiomeKeys.SNOWY_MOUNTAINS, new RegistryKey[]{BiomeRegistry.register("dunes", BiomeRegistry.NOWHERE_DUNES),BiomeRegistry.register("dunes", BiomeRegistry.NOWHERE_DUNES),BiomeRegistry.register("drained_dunes", BiomeRegistry.NOWHERE_DRAINED_DUNES),BiomeRegistry.register("necrotic_dunes", BiomeRegistry.NOWHERE_NECROTIC_DUNES),BiomeRegistry.register("salt_flats", BiomeRegistry.NOWHERE_SALT_FLATS),BiomeRegistry.register("solar_valley", BiomeRegistry.NOWHERE_SOLAR_VALLEY)});
     }
 }

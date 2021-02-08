@@ -55,4 +55,9 @@ public class BiomeRegistry {
         biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(
             Lists::newArrayList).collect(Collectors.toList());
     }
+    public static RegistryKey<Biome> register(String name, Biome biome){
+        Identifier id = new Identifier("nowherebiomes", name);
+        Registry.register(BuiltinRegistries.BIOME, id, biome);
+        return RegistryKey.of(Registry.BIOME_KEY, id);
+    }
 }
