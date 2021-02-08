@@ -13,9 +13,8 @@ public class NowhereWorldType extends GeneratorType {
         GeneratorType.VALUES.add(this);
     }
 
-    @Override
-    protected ChunkGenerator method_29076(long l) {
-        return new NoiseChunkGenerator() {
-        };
+    @Override protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry,
+        Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
+        return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(biomeRegistry, seed), seed);;
     }
 }
