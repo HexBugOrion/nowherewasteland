@@ -19,6 +19,8 @@
   "block.nowhere.salt_heap": "Salt Heap",
   "block.nowhere.scrap_pile": "Scrap Pile",
   "block.nowhere.cracked_soil": "Cracked Soil",
+  "block.nowhere.scorched_soil": "Scorched Soil",
+  "block.nowhere.charcoal_log": "Charcoal Log",
 
   "item.nowhere.scrapmetal": "Scrap Metal",
   "item.nowhere.desert_root": "Desert Root",

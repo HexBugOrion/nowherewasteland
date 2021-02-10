@@ -10,6 +10,7 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import net.vdragondev.nowhere.registries.BlockRegistry;
+import net.vdragondev.nowhere.worldgen.NowhereDefaultFeatures;
 import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
 import net.vdragondev.nowhere.worldgen.WorldGenRegistryHelper;
 
@@ -54,6 +55,6 @@ public class DunesBiome extends NowhereBiome {
     }
 
     static {
-       // NowhereDefaultFeatures.addDriedTrees(GENERATION_SETTINGS);
+       NowhereDefaultFeatures.addDriedTrees(GENERATION_SETTINGS);
     }
 }

@@ -33,6 +33,8 @@ public class ItemRegistry {
     public static final Item SAlT_BLOCK = createItem(new BlockItem(BlockRegistry.SALT_BLOCK, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "salt_block");
     public static final Item SALT_HEAP = createItem(new BlockItem(BlockRegistry.SALT_HEAP, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "salt_heap");
     public static final Item CRACKED_SOIL = createItem(new BlockItem(BlockRegistry.CRACKED_SOIL, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "cracked_soil");
+    public static final Item SCORCHED_SOIL = createItem(new BlockItem(BlockRegistry.SCORCHED_SOIL, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "scorched_soil");
+    public static final Item CHARCOAL_LOG = createItem(new BlockItem(BlockRegistry.CHARCOAL_LOG, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "charcoal_log");
 
     //items
     public static final Item SCRAPMETAL = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "scrapmetal");

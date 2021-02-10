@@ -257,7 +257,7 @@ public class NowhereTreeConfig implements FeatureConfig {
             return this;
         }
 
-        public NowhereTreeConfig build() {
+        public FeatureConfig build() {
             return new NowhereTreeConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
         }
     }
