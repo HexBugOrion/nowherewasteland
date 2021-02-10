@@ -10,6 +10,7 @@ public class NowhereFeatures {
 
     public static final Feature<DefaultFeatureConfig> DRIED_TREE = WorldGenRegistryHelper.createFeature("dried_tree", new SmallTreeThing(DefaultFeatureConfig.CODEC.stable()));
 
+
     public static class Configurations{
 
     }

@@ -36,7 +36,7 @@ public class SmallTreeThing extends Feature<DefaultFeatureConfig> {
             }
 
             StructureManager templatemanager = world.toServerWorld().getStructureManager();
-            Structure template = templatemanager.getStructure(new Identifier(Nowhere.MOD_ID + ":features/trees/oak_tree_large2"));
+            Structure template = templatemanager.getStructure(new Identifier(Nowhere.MOD_ID + ":features/trees/dried_tree"));
 
             if (template == null) {
                 return false;
