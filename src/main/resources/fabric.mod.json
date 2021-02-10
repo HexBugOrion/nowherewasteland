@@ -6,7 +6,7 @@
   "name": "Nowhere: Wasteland Adventure",
   "description": "The plane of the Lost (Credit for registry code and such goes to CorgiTaco and AOCAWOL)",
   "authors": [
-    "OrionHexDev"
+    "VoxelDragon6, formerly OrionHexDev"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.oriondev.nowhere.Nowhere"
+      "net.vdragondev.nowhere.Nowhere"
     ]
   },
   "mixins": [
