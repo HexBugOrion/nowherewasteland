@@ -21,8 +21,7 @@ import java.util.stream.Collectors;
 public class BiomeRegistry {
 
     //actual biomes
-    public static Biome NOWHERE_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(
-        Nowhere.MOD_ID, "nowhere_dunes"), new DunesBiome().getBiome());
+    public static Biome NOWHERE_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_dunes"), new DunesBiome().getBiome());
     public static Biome NOWHERE_SALT_FLATS = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_saltflats"), new SaltFlatsBiome().getBiome());
     public static Biome NOWHERE_DRAINED_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_drained_dunes"), new DrainedDunes().getBiome());
     public static Biome NOWHERE_NECROTIC_DUNES = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_necrotic_dunes"), new NecroticDunes().getBiome());
