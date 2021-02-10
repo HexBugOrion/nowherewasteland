@@ -7,9 +7,9 @@ import net.vdragondev.nowhere.worldgen.features.trees.DriedTree;
 
 public class FeatureRegistry {
 
-    public static final NowhereAbstractTreeFeature<NowhereTreeConfig> DRIED_TREE = WorldGenRegistryHelper
-        .createFeature("dried_tree", new DriedTree(
-        NowhereTreeConfig.CODEC));
+    public static final NowhereAbstractTreeFeature<NowhereTreeConfig> DRIED_TREE1 = WorldGenRegistryHelper
+        .createFeature("dried_tree1", new DriedTree(
+            NowhereTreeConfig.CODEC));
 
     public static void init() {
     }
