@@ -7,8 +7,8 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
 import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 
-public class NowhereWorldType extends GeneratorType {
-    protected NowhereWorldType() {
+public class NowhereWorldType /*extends GeneratorType*/ {
+    /*protected NowhereWorldType() {
         super("nowhere");
         GeneratorType.VALUES.add(this);
     }
@@ -17,4 +17,6 @@ public class NowhereWorldType extends GeneratorType {
     protected ChunkGenerator getChunkGenerator(Registry<Biome> biomes, Registry<ChunkGeneratorSettings> settings, long seed) {
         return new NoiseChunkGenerator(new NowhereBiomeSource(biomes, seed, settings), seed);
     }
+
+     */
 }

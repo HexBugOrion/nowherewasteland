@@ -15,8 +15,8 @@ import net.oriondev.nowhere.worldgen.BiomeGenData;
 
 import java.util.List;
 
-public class NowhereBiomeSource extends BiomeSource {
-    public static Codec<NowhereBiomeSource> CODEC =  RecordCodecBuilder.create((instance) -> {
+public class NowhereBiomeSource /*extends BiomeSource */{
+    /*public static Codec<NowhereBiomeSource> CODEC =  RecordCodecBuilder.create((instance) -> {
         return instance.group(RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((source) -> source.biomeRegistry),
             Codec.LONG.fieldOf("seed").stable().forGetter((source) -> source.seed))
             .apply(instance, instance.stable(NowhereBiomeSource::new));
@@ -46,7 +46,6 @@ public class NowhereBiomeSource extends BiomeSource {
 
     public Biome getBiomeForNoiseGen(int biomeX, int biomeY, int biomeZ) {
         try {
-            // TODO: no crash sampler
             return this.biomeSampler.sample(this.biomeRegistry, biomeX, biomeZ);
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,4 +62,5 @@ public class NowhereBiomeSource extends BiomeSource {
     public BiomeSource withSeed(long seed) {
         return new NowhereBiomeSource(this.biomeRegistry, seed);
     }
+     */
 }
