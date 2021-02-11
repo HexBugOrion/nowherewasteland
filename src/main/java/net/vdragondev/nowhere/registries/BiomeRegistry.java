@@ -28,6 +28,7 @@ public class BiomeRegistry {
     public static Biome NOWHERE_SOLAR_VALLEY = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_solar_valley"), new SolarValleyBiome().getBiome());
     public static Biome NOWHERE_NATRON_SEA = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_natron_sea"), new NatronSeaBiome().getBiome());
     public static Biome NOWHERE_SCORCHED_PEAKS = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_scorched_peaks"), new SolarValleyBiome().getBiome());
+    public static Biome NOWHERE_MONO = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_monoliths"), new DunesBiome().getBiome());
 
     public static void init() {
     }

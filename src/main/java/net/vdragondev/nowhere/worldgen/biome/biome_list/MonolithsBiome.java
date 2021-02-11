@@ -10,11 +10,11 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import net.vdragondev.nowhere.registries.BlockRegistry;
-import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
 import net.vdragondev.nowhere.worldgen.WorldGenRegistryHelper;
+import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
 
-public class DunesBiome extends NowhereBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistryHelper.createConfiguredSurfaceBuilder("dunes", new ConfiguredSurfaceBuilder<>(
+public class MonolithsBiome extends NowhereBiome {
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistryHelper.createConfiguredSurfaceBuilder("monoliths", new ConfiguredSurfaceBuilder<>(
         SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BlockRegistry.DUST.getDefaultState(), BlockRegistry.PACKED_DUST.getDefaultState(), BlockRegistry.PACKED_DUST.getDefaultState())));
     static final Biome.Precipitation PRECIPATATION = Biome.Precipitation.NONE;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
@@ -30,7 +30,7 @@ public class DunesBiome extends NowhereBiome {
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
-    public DunesBiome() {
+    public MonolithsBiome() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(16769730).skyColor(SKY_COLOR).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
@@ -54,6 +54,6 @@ public class DunesBiome extends NowhereBiome {
     }
 
     static {
-
+       //NowhereDefaultFeatures.addDriedTrees(GENERATION_SETTINGS);
     }
 }
