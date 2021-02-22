@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "plant.PlantMixin",
-    "world.GeneratorTypeMixin"
+    "world.GeneratorTypeMixin",
+    "feature.SoilMixin"
   ],
   "client": [],
   "server": [],

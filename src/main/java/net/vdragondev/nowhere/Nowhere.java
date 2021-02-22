@@ -18,8 +18,8 @@ import net.minecraft.world.biome.Biome;
 import net.vdragondev.nowhere.extras.fluids.SaltWater;
 import net.vdragondev.nowhere.registries.BiomeRegistry;
 import net.vdragondev.nowhere.registries.BlockRegistry;
-import net.vdragondev.nowhere.registries.FeatureRegistry;
 import net.vdragondev.nowhere.registries.ItemRegistry;
+import net.vdragondev.nowhere.registries.NowhereFeaturesRegistry;
 import net.vdragondev.nowhere.worldgen.NowhereWorldtype;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.JsonGenBiomes;
@@ -111,9 +111,9 @@ public class Nowhere implements ModInitializer {
 	public static class NowhereWorldRegistries{
 
 		public static void registerWorldStuff(){
-			System.out.println("Registering Biomes...");
-			FeatureRegistry.init();
-			System.out.println("Biomes Registered!");
+			System.out.println("Registering Features...");
+			NowhereFeaturesRegistry.registerConfiguredFeatures();
+			System.out.println("Features Registered!");
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();
 			System.out.println("Biomes Registered!");
