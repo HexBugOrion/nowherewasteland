@@ -10,26 +10,40 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.world.GeneratorType;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.source.VanillaLayeredBiomeSource;
+import net.minecraft.world.gen.chunk.*;
 import net.vdragondev.nowhere.extras.fluids.SaltWater;
+import net.vdragondev.nowhere.mixin.world.GeneratorTypeMixin;
 import net.vdragondev.nowhere.registries.BiomeRegistry;
 import net.vdragondev.nowhere.registries.BlockRegistry;
 import net.vdragondev.nowhere.registries.ItemRegistry;
 import net.vdragondev.nowhere.registries.NowhereFeaturesRegistry;
-import net.vdragondev.nowhere.worldgen.NowhereWorldtype;
+import net.vdragondev.nowhere.worldgen.NowhereLayeredBiomeSource;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.JsonGenBiomes;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.SubBiomeDataListHolder;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.Collections;
+import java.util.Optional;
 
 
 public class Nowhere implements ModInitializer {
+
+	private static final GeneratorType NOWHERE = new GeneratorType("nowhere") {
+		protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry, Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
+			return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(seed, false, false, biomeRegistry), seed, () -> {
+				return (ChunkGeneratorSettings)chunkGeneratorSettingsRegistry.getOrThrow(ChunkGeneratorSettings.OVERWORLD);
+			});
+		}
+	};
 
 	public static Registry<Biome> REGISTRY;
 
@@ -39,8 +53,6 @@ public class Nowhere implements ModInitializer {
 	public static Item SALTWATER_BUCKET;
 
 	public static Block SALTWATER;
-
-	private static NowhereWorldtype worldType;
 
 	public static final String MOD_ID = "nowhere";
 	public static String FILE_PATH = "your-home";
@@ -64,18 +76,15 @@ public class Nowhere implements ModInitializer {
 
 		STILL_SALTWATER = Registry.register(Registry.FLUID, new Identifier(MOD_ID, "saltwater"), new SaltWater.Still());
 		FLOWING_SALTWATER = Registry.register(Registry.FLUID, new Identifier(MOD_ID,"flowing_saltwater"),  new SaltWater.Flowing());
-		SALTWATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(MOD_ID,"saltwater_bucket"), new BucketItem(STILL_SALTWATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+		SALTWATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(MOD_ID,"saltwater_bucket"), new BucketItem(STILL_SALTWATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1).group(ItemGroup.MISC)));
 		SALTWATER = Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "saltwater"), new FluidBlock(STILL_SALTWATER, FabricBlockSettings.copy(Blocks.WATER)){});
 
 		System.out.println("Registered Fluids!");
 		NowhereWorldRegistries.registerWorldStuff();
 		commonSetup();
 		clearRAM();
+		GeneratorTypeMixin.getValues().add(NOWHERE);
 		System.out.println("Registered Nowhere, welcome... to your last stop...");
-		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-			worldType = new NowhereWorldtype("nowhere");
-		}
-
 	}
 
 	private void commonSetup(){
@@ -100,7 +109,7 @@ public class Nowhere implements ModInitializer {
 
 			System.out.println("Registering Blocks...");
 			BlockRegistry.init();
-			BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DESERT_ROOTS, RenderLayer.getCutout());
+			BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DESERT_ROOTS, RenderLayer.getTranslucent());
 			System.out.println("Blocks Registered!");
 			System.out.println("Registering Items...");
 			ItemRegistry.init();

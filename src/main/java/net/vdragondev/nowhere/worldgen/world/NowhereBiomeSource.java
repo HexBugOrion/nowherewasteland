@@ -2,17 +2,17 @@ package net.vdragondev.nowhere.worldgen.world;
 
 
 public class NowhereBiomeSource /*extends BiomeSource */{
-    /*public static Codec<NowhereBiomeSource> CODEC =  RecordCodecBuilder.create((instance) -> {
+    /*public static Codec<NowhereLayeredBiomeSource> CODEC =  RecordCodecBuilder.create((instance) -> {
         return instance.group(RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((source) -> source.biomeRegistry),
             Codec.LONG.fieldOf("seed").stable().forGetter((source) -> source.seed))
-            .apply(instance, instance.stable(NowhereBiomeSource::new));
+            .apply(instance, instance.stable(NowhereLayeredBiomeSource::new));
     });
 
     public final Registry<Biome> biomeRegistry;
     private final BiomeLayerSampler biomeSampler;
     private final long seed;
 
-    public NowhereBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+    public NowhereLayeredBiomeSource(Registry<Biome> biomeRegistry, long seed) {
         super(BiomeGenData.LOOKUP.keySet().stream().map((k) -> () -> biomeRegistry.getOrThrow(k)));
         this.biomeRegistry = biomeRegistry;
         this.biomeSampler = NowhereBiomeLayers.build(seed);
@@ -46,7 +46,7 @@ public class NowhereBiomeSource /*extends BiomeSource */{
 
     @Override
     public BiomeSource withSeed(long seed) {
-        return new NowhereBiomeSource(this.biomeRegistry, seed);
+        return new NowhereLayeredBiomeSource(this.biomeRegistry, seed);
     }
      */
 }

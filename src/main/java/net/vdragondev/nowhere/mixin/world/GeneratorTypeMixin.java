@@ -1,6 +1,7 @@
 package net.vdragondev.nowhere.mixin.world;
 
 import net.minecraft.client.world.GeneratorType;
+import net.minecraft.world.biome.BiomeKeys;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
@@ -12,5 +13,4 @@ public interface GeneratorTypeMixin {
     public static List<GeneratorType> getValues(){
         throw new AssertionError();
     }
-
 }

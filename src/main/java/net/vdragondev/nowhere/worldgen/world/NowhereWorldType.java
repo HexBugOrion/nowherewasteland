@@ -15,7 +15,7 @@ public class NowhereWorldType /*extends GeneratorType*/ {
 
     @Override
     protected ChunkGenerator getChunkGenerator(Registry<Biome> biomes, Registry<ChunkGeneratorSettings> settings, long seed) {
-        return new NoiseChunkGenerator(new NowhereBiomeSource(biomes, seed, settings), seed);
+        return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(biomes, seed, settings), seed);
     }
 
      */

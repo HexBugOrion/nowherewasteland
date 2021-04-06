@@ -6,6 +6,7 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.collection.WeightedList;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.source.VanillaLayeredBiomeSource;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;

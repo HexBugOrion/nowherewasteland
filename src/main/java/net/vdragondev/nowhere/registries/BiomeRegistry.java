@@ -1,22 +1,15 @@
 package net.vdragondev.nowhere.registries;
 
-import com.google.common.collect.Lists;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.vdragondev.nowhere.Nowhere;
 import net.vdragondev.nowhere.worldgen.biome.BiomeData;
 import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
 import net.vdragondev.nowhere.worldgen.biome.biome_list.*;
-
-import java.util.List;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class BiomeRegistry {
 
@@ -30,6 +23,7 @@ public class BiomeRegistry {
     public static Biome NOWHERE_SCORCHED_PEAKS = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_scorched_peaks"), new SolarValleyBiome().getBiome());
     public static Biome NOWHERE_MONO = Registry.register(BuiltinRegistries.BIOME, new Identifier(Nowhere.MOD_ID, "nowhere_monoliths"), new DunesBiome().getBiome());
 
+    public static RegistryKey<Biome> DUNES_KEY = register("dunes_key", BiomeRegistry.NOWHERE_DUNES);
     public static void init() {
     }
 
@@ -42,21 +36,8 @@ public class BiomeRegistry {
             }
         }
     }
-    public static void addFeatureToBiome(Biome biome, GenerationStep.Feature feature, ConfiguredFeature<?, ?> configuredFeature) {
-        convertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
-        while (biomeFeatures.size() <= feature.ordinal()) {
-            biomeFeatures.add(Lists.newArrayList());
-        }
-        biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
-    }
-    private static void convertImmutableFeatures(Biome biome) {
-        biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(
-            Lists::newArrayList).collect(Collectors.toList());
-    }
     public static RegistryKey<Biome> register(String name, Biome biome){
         Identifier id = new Identifier("nowherebiomes", name);
-        Registry.register(BuiltinRegistries.BIOME, id, biome);
         return RegistryKey.of(Registry.BIOME_KEY, id);
     }
 }

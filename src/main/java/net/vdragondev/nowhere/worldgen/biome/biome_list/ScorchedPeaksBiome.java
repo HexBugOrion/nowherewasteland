@@ -7,8 +7,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.WeightedList;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.vdragondev.nowhere.registries.NowhereFeaturesRegistry;
 import net.vdragondev.nowhere.worldgen.WorldGenRegistryHelper;
 import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
 import net.vdragondev.nowhere.worldgen.biome.NowhereSurfaceBuilders;
@@ -56,5 +58,8 @@ public class ScorchedPeaksBiome extends NowhereBiome {
     }
 
     static {
+
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereFeaturesRegistry.CHARRED_TREE_DEC);
+
     }
 }
