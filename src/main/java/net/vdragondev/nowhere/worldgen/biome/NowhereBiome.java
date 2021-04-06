@@ -76,4 +76,5 @@ public class NowhereBiome {
     public RegistryKey<Biome> getKey() {
         return RegistryKey.of(Registry.BIOME_KEY, Objects.requireNonNull(BuiltinRegistries.BIOME.getId(this.biome)));
     }
+
 }

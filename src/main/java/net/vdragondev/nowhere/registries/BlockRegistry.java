@@ -31,7 +31,7 @@ public class BlockRegistry {
     public static final Block SALT_BLOCK = createLifelessSands("salt_block");
     public static final Block SALT_HEAP = createSalts("salt_heap");
     public static final Block CRACKED_SOIL = createCrackedSoils("cracked_soil");
-    public static final Block SCORCHED_SOIL = createScorched("scorched_soil");
+    public static final Block SCORCHED_SOIL = createCrackedSoils("scorched_soil");
     public static final Block CHARCOAL_LOG = createLogs("charcoal_log");
 
     static Block createLogs(String id) {

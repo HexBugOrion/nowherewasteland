@@ -6,10 +6,12 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.collection.WeightedList;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import net.vdragondev.nowhere.registries.BlockRegistry;
+import net.vdragondev.nowhere.registries.NowhereFeaturesRegistry;
 import net.vdragondev.nowhere.worldgen.WorldGenRegistryHelper;
 import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
 
@@ -54,5 +56,7 @@ public class NecroticDunes extends NowhereBiome {
     }
 
     static {
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereFeaturesRegistry.NECROTIC_TREE_DEC);
+
     }
 }

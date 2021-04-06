@@ -15,6 +15,7 @@ import net.minecraft.world.biome.BuiltinBiomes;
 import net.minecraft.world.biome.layer.BiomeLayers;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
+import net.minecraft.world.biome.source.VanillaLayeredBiomeSource;
 import net.vdragondev.nowhere.Nowhere;
 import net.vdragondev.nowhere.registries.BiomeRegistry;
 
@@ -22,14 +23,14 @@ import java.util.List;
 
 public class NowhereLayeredBiomeSource extends BiomeSource {
     public static final Codec<NowhereLayeredBiomeSource> CODEC = RecordCodecBuilder.create((instance) -> {
-        return instance.group(Codec.LONG.fieldOf("seed").stable().forGetter((vanillaLayeredBiomeSource) -> {
-            return vanillaLayeredBiomeSource.seed;
-        }), Codec.BOOL.optionalFieldOf("legacy_biome_init_layer", false, Lifecycle.stable()).forGetter((vanillaLayeredBiomeSource) -> {
-            return vanillaLayeredBiomeSource.legacyBiomeInitLayer;
-        }), Codec.BOOL.fieldOf("large_biomes").orElse(false).stable().forGetter((vanillaLayeredBiomeSource) -> {
-            return vanillaLayeredBiomeSource.largeBiomes;
-        }), RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((vanillaLayeredBiomeSource) -> {
-            return vanillaLayeredBiomeSource.biomeRegistry;
+        return instance.group(Codec.LONG.fieldOf("seed").stable().forGetter((nowhereLayeredBiomeSource) -> {
+            return nowhereLayeredBiomeSource.seed;
+        }), Codec.BOOL.optionalFieldOf("legacy_biome_init_layer", false, Lifecycle.stable()).forGetter((nowhereLayeredBiomeSource) -> {
+            return nowhereLayeredBiomeSource.legacyBiomeInitLayer;
+        }), Codec.BOOL.fieldOf("large_biomes").orElse(false).stable().forGetter((nowhereLayeredBiomeSource) -> {
+            return nowhereLayeredBiomeSource.largeBiomes;
+        }), RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((nowhereLayeredBiomeSource) -> {
+            return nowhereLayeredBiomeSource.biomeRegistry;
         })).apply(instance, instance.stable(NowhereLayeredBiomeSource::new));
     });
     private final BiomeLayerSampler biomeSampler;
@@ -58,7 +59,7 @@ public class NowhereLayeredBiomeSource extends BiomeSource {
 
     @Environment(EnvType.CLIENT)
     public BiomeSource withSeed(long seed) {
-        return new net.minecraft.world.biome.source.VanillaLayeredBiomeSource(seed, this.legacyBiomeInitLayer, this.largeBiomes, this.biomeRegistry);
+        return new NowhereLayeredBiomeSource(seed, this.legacyBiomeInitLayer, this.largeBiomes, this.biomeRegistry);
     }
 
     public Biome getBiomeForNoiseGen(int biomeX, int biomeY, int biomeZ) {

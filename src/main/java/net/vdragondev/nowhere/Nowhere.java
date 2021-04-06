@@ -1,6 +1,5 @@
 package net.vdragondev.nowhere;
 
-import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -16,7 +15,6 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.VanillaLayeredBiomeSource;
 import net.minecraft.world.gen.chunk.*;
 import net.vdragondev.nowhere.extras.fluids.SaltWater;
 import net.vdragondev.nowhere.mixin.world.GeneratorTypeMixin;
@@ -31,8 +29,6 @@ import net.vdragondev.nowhere.worldgen.biome.jsongen.SubBiomeDataListHolder;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.util.Collections;
-import java.util.Optional;
 
 
 public class Nowhere implements ModInitializer {

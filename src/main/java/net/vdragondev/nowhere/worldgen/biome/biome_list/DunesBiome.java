@@ -11,6 +11,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import net.vdragondev.nowhere.registries.BiomeRegistry;
 import net.vdragondev.nowhere.registries.BlockRegistry;
 import net.vdragondev.nowhere.registries.NowhereFeaturesRegistry;
 import net.vdragondev.nowhere.worldgen.biome.NowhereBiome;
@@ -42,7 +43,7 @@ public class DunesBiome extends NowhereBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.SAVANNA), 3);
+        biomeWeightedList.add(BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.SAVANNA), 1);
         return biomeWeightedList;
     }
 
@@ -58,5 +59,7 @@ public class DunesBiome extends NowhereBiome {
 
     static {
         GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereFeaturesRegistry.DRIED_TREE_DEC);
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereFeaturesRegistry.SCRAP2);
+
     }
 }
