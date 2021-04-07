@@ -74,6 +74,7 @@ public class Nowhere implements ModInitializer {
 		FLOWING_SALTWATER = Registry.register(Registry.FLUID, new Identifier(MOD_ID,"flowing_saltwater"),  new SaltWater.Flowing());
 		SALTWATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(MOD_ID,"saltwater_bucket"), new BucketItem(STILL_SALTWATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1).group(ItemGroup.MISC)));
 		SALTWATER = Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "saltwater"), new FluidBlock(STILL_SALTWATER, FabricBlockSettings.copy(Blocks.WATER)){});
+		BlockRenderLayerMap.INSTANCE.putBlock(SALTWATER, RenderLayer.getTranslucent());
 
 		System.out.println("Registered Fluids!");
 		NowhereWorldRegistries.registerWorldStuff();
@@ -105,7 +106,7 @@ public class Nowhere implements ModInitializer {
 
 			System.out.println("Registering Blocks...");
 			BlockRegistry.init();
-			BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DESERT_ROOTS, RenderLayer.getTranslucent());
+			BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DESERT_ROOTS, RenderLayer.getCutout());
 			System.out.println("Blocks Registered!");
 			System.out.println("Registering Items...");
 			ItemRegistry.init();
