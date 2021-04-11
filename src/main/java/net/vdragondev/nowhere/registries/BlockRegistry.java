@@ -33,6 +33,11 @@ public class BlockRegistry {
     public static final Block CRACKED_SOIL = createCrackedSoils("cracked_soil");
     public static final Block SCORCHED_SOIL = createCrackedSoils("scorched_soil");
     public static final Block CHARCOAL_LOG = createLogs("charcoal_log");
+    public static final Block VORTEX_PACKED_DUST = createLifelessSoils("vortex_packed_dust");
+    public static final Block VORTEX_DUST = createLifelessSands("vortex_dust");
+    public static final Block VORTEXITE = createStones("vortexite");
+    public static final Block MONOSTONE = createGlowingMonoStones("monostone");
+    public static final Block CARNA_ROOTS = createFlower("carna_roots");
 
     static Block createLogs(String id) {
         Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(2.5f,2.5f));
@@ -107,6 +112,21 @@ public class BlockRegistry {
         Block createBlock = new Block(
             FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(1,1).breakByTool(
                 FabricToolTags.PICKAXES));
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+    static Block createMonoStones(String id){
+        Block createBlock = new Block(
+            FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(50,12000).breakByTool(
+                FabricToolTags.PICKAXES,3));
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }    static Block createGlowingMonoStones(String id){
+        Block createBlock = new Block(
+            FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(50,12000).breakByTool(
+                FabricToolTags.PICKAXES,3).lightLevel(4));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
         return createBlock;

@@ -8,19 +8,17 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.biome.source.VanillaLayeredBiomeSource;
 import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
-import net.minecraft.world.gen.trunk.MegaJungleTrunkPlacer;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 public class NowhereFeaturesRegistry {
 
@@ -40,6 +38,8 @@ public class NowhereFeaturesRegistry {
     public static ConfiguredFeature<?,?> MONOLITH_DEC;
     public static ConfiguredFeature<?,?> SCRAP;
     public static ConfiguredFeature<?,?> SCRAP2;
+    public static ConfiguredFeature<?,?> DESERT_ROOTS;
+    public static ConfiguredFeature<?,?> CARNA_ROOTS;
 
     public static void registerConfiguredFeatures() {
 
@@ -53,6 +53,8 @@ public class NowhereFeaturesRegistry {
         MONOLITH_DEC = register("nowhere:monolith_decor", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(MONOLITH.withChance(0.04F), MONOLITH.withChance(0.04F)), MONOLITH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.1F, 1))));
         SCRAP = register("nowhere:scrap", Feature.RANDOM_PATCH.configure((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(States.SCRAP_HEAP), SimpleBlockPlacer.INSTANCE)).tries(128).whitelist(ImmutableSet.of(States.CRACKED_SOIL.getBlock())).cannotProject().build()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).applyChance(0));
         SCRAP2 = register("nowhere:scrap_rare", Feature.RANDOM_PATCH.configure((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(States.SCRAP_HEAP), SimpleBlockPlacer.INSTANCE)).tries(64).whitelist(ImmutableSet.of(States.DUST.getBlock())).cannotProject().build()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).applyChance(8));
+        DESERT_ROOTS = register("nowhere:roots", Feature.RANDOM_PATCH.configure((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(States.DESERT_ROOTS), SimpleBlockPlacer.INSTANCE)).tries(256).whitelist(ImmutableSet.of(States.DUST.getBlock())).cannotProject().build()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).applyChance(0));
+        CARNA_ROOTS = register("nowhere:necroots", Feature.RANDOM_PATCH.configure((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(States.CARNA_ROOTS), SimpleBlockPlacer.INSTANCE)).tries(256).whitelist(ImmutableSet.of(States.NECROTIC_DUST.getBlock())).cannotProject().build()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).applyChance(0));
 
     }
 
@@ -64,7 +66,10 @@ public class NowhereFeaturesRegistry {
         protected static final BlockState SCRAP_HEAP = BlockRegistry.SCRAP_HEAP.getDefaultState();
         protected static final BlockState CRACKED_SOIL = BlockRegistry.CRACKED_SOIL.getDefaultState();
         protected static final BlockState DUST = BlockRegistry.DUST.getDefaultState();
-        protected static final BlockState MONOSTONE = Blocks.BLACK_CONCRETE.getDefaultState();
+        protected static final BlockState NECROTIC_DUST = BlockRegistry.NECROTIC_DUST.getDefaultState();
+        protected static final BlockState DESERT_ROOTS = BlockRegistry.DESERT_ROOTS.getDefaultState();
+        protected static final BlockState CARNA_ROOTS = BlockRegistry.CARNA_ROOTS.getDefaultState();
+        protected static final BlockState MONOSTONE = BlockRegistry.MONOSTONE.getDefaultState();
         protected static final BlockState AIR = Blocks.AIR.getDefaultState();
 
     }

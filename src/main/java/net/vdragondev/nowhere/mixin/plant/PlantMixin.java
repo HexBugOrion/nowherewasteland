@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlantMixin {
     @Inject(at = @At("HEAD"), method = "canPlantOnTop", cancellable = true)
     private void init(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> info) {
-        if (floor.isOf(BlockRegistry.DUST) || floor.isOf(BlockRegistry.PACKED_DUST)) {
+        if (floor.isOf(BlockRegistry.DUST) || floor.isOf(BlockRegistry.PACKED_DUST) || floor.isOf(BlockRegistry.NECROTIC_DUST )|| floor.isOf(BlockRegistry.NECROTIC_PACKED_DUST)) {
             info.setReturnValue(true);
         }
     }

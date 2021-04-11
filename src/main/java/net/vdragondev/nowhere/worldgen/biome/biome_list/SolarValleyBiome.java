@@ -21,8 +21,8 @@ public class SolarValleyBiome extends NowhereBiome {
         NowhereSurfaceBuilders.SOLAR_VALLEY, SurfaceBuilder.GRASS_CONFIG));
     static final Biome.Precipitation PRECIPATATION = Biome.Precipitation.NONE;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
-    static final float DEPTH = 2.0F;
-    static final float SCALE = 0.1F;
+    static final float DEPTH = 0.3F;
+    static final float SCALE = 0.0F;
     static final float TEMPERATURE = 1.2F;
     static final float DOWNFALL = 0.0F;
     static final int WATER_COLOR = 4159204;

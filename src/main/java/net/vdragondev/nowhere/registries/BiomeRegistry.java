@@ -29,6 +29,8 @@ public class BiomeRegistry {
     public static Biome NOWHERE_SCORCHED_PEAKS = Registry.register(BuiltinRegistries.BIOME, SCORCHED_PEAKS_KEY.getValue(), new ScorchedPeaksBiome().getBiome());
     public static RegistryKey<Biome> MONOLITH_KEY = register("mono_key", BiomeRegistry.NOWHERE_MONO);
     public static Biome NOWHERE_MONO = Registry.register(BuiltinRegistries.BIOME, MONOLITH_KEY.getValue(), new MonolithBiome().getBiome());
+    public static RegistryKey<Biome> VORTEX_KEY = register("vortex_key", BiomeRegistry.NOWHERE_VORTEX);
+    public static Biome NOWHERE_VORTEX = Registry.register(BuiltinRegistries.BIOME, VORTEX_KEY.getValue(), new VortexPlainsBiome().getBiome());
 
     public static void init() {
     }

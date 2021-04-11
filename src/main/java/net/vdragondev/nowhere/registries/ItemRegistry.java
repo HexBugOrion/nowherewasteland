@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.vdragondev.nowhere.Nowhere;
+import net.vdragondev.nowhere.extras.items.MonoLoreItem1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,7 @@ public class ItemRegistry {
     public static List<Item> itemsList = new ArrayList<>();
 
     //blockItems
-    public static final Item DUST = createItem(new BlockItem(BlockRegistry.DUST, new Item.Settings().group(
-        Nowhere.NOWHERE_BLOCKS)), "dust");
+    public static final Item DUST = createItem(new BlockItem(BlockRegistry.DUST, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "dust");
     public static final Item PACKED_DUST = createItem(new BlockItem(BlockRegistry.PACKED_DUST, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "packed_dust");
     public static final Item DRIED_LOG = createItem(new BlockItem(BlockRegistry.DRIED_LOG, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "dried_log");
     public static final Item DRAINED_PACKED_DUST = createItem(new BlockItem(BlockRegistry.DRAINED_PACKED_DUST, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "drained_packed_dust");
@@ -35,6 +35,11 @@ public class ItemRegistry {
     public static final Item CRACKED_SOIL = createItem(new BlockItem(BlockRegistry.CRACKED_SOIL, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "cracked_soil");
     public static final Item SCORCHED_SOIL = createItem(new BlockItem(BlockRegistry.SCORCHED_SOIL, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "scorched_soil");
     public static final Item CHARCOAL_LOG = createItem(new BlockItem(BlockRegistry.CHARCOAL_LOG, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "charcoal_log");
+    public static final Item VORTEX_DUST = createItem(new BlockItem(BlockRegistry.VORTEX_DUST, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "vortex_dust");
+    public static final Item VORTEX_PACKED_DUST = createItem(new BlockItem(BlockRegistry.VORTEX_PACKED_DUST, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "vortex_packed_dust");
+    public static final Item VORTEXITE = createItem(new BlockItem(BlockRegistry.VORTEXITE, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "vortexite");
+    public static final Item MONOSTONE = createItem(new BlockItem(BlockRegistry.MONOSTONE, new Item.Settings().group(Nowhere.NOWHERE_BLOCKS)), "monostone");
+    public static final Item CARNA_ROOTS = createItem(new BlockItem(BlockRegistry.CARNA_ROOTS, new Item.Settings().group(Nowhere.NOWHERE_DECOR)), "carna_roots");
 
     //items
     public static final Item SCRAPMETAL = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_MISC)), "scrapmetal");
@@ -46,6 +51,9 @@ public class ItemRegistry {
     public static final Item DESERT_ROOT = createItem(new Item(new Item.Settings().group(Nowhere.NOWHERE_FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.f).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20*5), 0.05f).statusEffect(new StatusEffectInstance(StatusEffects.POISON, 20*7), 0.01f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20*20), 0.10f).build())), "desert_root");
 
     //tools
+
+    //lore
+    public static MonoLoreItem1 MONOLORE1 = createMonoLoreItem1(new MonoLoreItem1(new Item.Settings().group(Nowhere.NOWWHERE_LORE).maxCount(1)), "monolore1");
 
 
 
@@ -60,6 +68,10 @@ public class ItemRegistry {
     }
 
     public static Item createItem(Item item, String id) {
+        Registry.register(Registry.ITEM, new Identifier(Nowhere.MOD_ID, id), item);
+        return item;
+    }
+    public static MonoLoreItem1 createMonoLoreItem1(MonoLoreItem1 item, String id) {
         Registry.register(Registry.ITEM, new Identifier(Nowhere.MOD_ID, id), item);
         return item;
     }

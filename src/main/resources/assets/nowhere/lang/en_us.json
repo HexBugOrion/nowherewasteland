@@ -21,11 +21,22 @@
   "block.nowhere.cracked_soil": "Cracked Soil",
   "block.nowhere.scorched_soil": "Scorched Soil",
   "block.nowhere.charcoal_log": "Charcoal Log",
+  "block.nowhere.vortex_dust": "Vortex Dust",
+  "block.nowhere.vortex_packed_dust": "Vortex Packed Dust",
+  "block.nowhere.vortexite": "Vortexite",
+  "block.nowhere.monostone": "Runed Monostone",
+  "block.nowhere.carna_root": "Carna Root",
 
   "item.nowhere.scrapmetal": "Scrap Metal",
   "item.nowhere.desert_root": "Desert Root",
   "item.nowhere.steel_ingot": "Steel Ingot",
   "item.nowhere.steel_nugget": "Steel Nugget",
-  "item.nowhere.salt": "Salt"
+  "item.nowhere.salt": "Salt",
+  "item.nowhere.monolore1": "Monolithic Fragment",
 
+  "nowhere.loreitemmonolith1.lore1": "§5A strange artifact that hums",
+  "nowhere.loreitemmonolith1.lore2": "§5with the energies of this world",
+  "nowhere.loreitemmonolith1.lore3": "§5perhaps it can be of use...",
+  "nowhere.loreitemmonolith1.lore4": "§5A journey to far off lands may",
+  "nowhere.loreitemmonolith1.lore5": "§5reveal more..."
 }

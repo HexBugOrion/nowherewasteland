@@ -13,9 +13,17 @@ import net.minecraft.client.world.GeneratorType;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.*;
+import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
 import net.vdragondev.nowhere.extras.fluids.SaltWater;
 import net.vdragondev.nowhere.mixin.world.GeneratorTypeMixin;
 import net.vdragondev.nowhere.registries.BiomeRegistry;
@@ -26,6 +34,7 @@ import net.vdragondev.nowhere.worldgen.NowhereLayeredBiomeSource;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.JsonGenBiomes;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.SubBiomeDataListHolder;
+import net.vdragondev.nowhere.worldgen.features.VortexFeature;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -40,6 +49,12 @@ public class Nowhere implements ModInitializer {
 			});
 		}
 	};
+
+	private static final Feature<DefaultFeatureConfig> VORTEX_PYLON = new VortexFeature(
+		DefaultFeatureConfig.CODEC);
+	public static final ConfiguredFeature<?, ?> VORTEX_PYLON_CONFIG = VORTEX_PYLON.configure(
+		FeatureConfig.DEFAULT)
+		.decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(5)));
 
 	public static Registry<Biome> REGISTRY;
 
@@ -56,6 +71,7 @@ public class Nowhere implements ModInitializer {
 	public static final ItemGroup NOWHERE_DECOR = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nowhere_decor"), () -> new ItemStack(ItemRegistry.DESERT_ROOTS));
 	public static final ItemGroup NOWHERE_MISC = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nowhere_misc"), () -> new ItemStack(ItemRegistry.SCRAPMETAL));
 	public static final ItemGroup NOWHERE_FOOD = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nowhere_food"), () -> new ItemStack(ItemRegistry.DESERT_ROOT));
+	public static final ItemGroup NOWWHERE_LORE = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nowhere_lore"), () -> new ItemStack(ItemRegistry.MONOLORE1));
 
 	public static final Path CONFIG_PATH = new File(String.valueOf(FabricLoader.getInstance().getConfigDirectory().toPath().resolve(MOD_ID))).toPath();
 
@@ -107,6 +123,7 @@ public class Nowhere implements ModInitializer {
 			System.out.println("Registering Blocks...");
 			BlockRegistry.init();
 			BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DESERT_ROOTS, RenderLayer.getCutout());
+			BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CARNA_ROOTS, RenderLayer.getCutout());
 			System.out.println("Blocks Registered!");
 			System.out.println("Registering Items...");
 			ItemRegistry.init();
@@ -119,6 +136,11 @@ public class Nowhere implements ModInitializer {
 		public static void registerWorldStuff(){
 			System.out.println("Registering Features...");
 			NowhereFeaturesRegistry.registerConfiguredFeatures();
+			Registry.register(Registry.FEATURE, new Identifier(MOD_ID, "vortex_pylon"), VORTEX_PYLON);
+			RegistryKey<ConfiguredFeature<?, ?>> vortexPylon = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+				new Identifier("tutorial", "vortex_pylon"));
+			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, vortexPylon.getValue(),
+				VORTEX_PYLON_CONFIG);
 			System.out.println("Features Registered!");
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();

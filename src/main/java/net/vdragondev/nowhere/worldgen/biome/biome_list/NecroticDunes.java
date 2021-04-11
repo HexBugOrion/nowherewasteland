@@ -57,6 +57,7 @@ public class NecroticDunes extends NowhereBiome {
 
     static {
         GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereFeaturesRegistry.NECROTIC_TREE_DEC);
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, NowhereFeaturesRegistry.CARNA_ROOTS);
 
     }
 }
