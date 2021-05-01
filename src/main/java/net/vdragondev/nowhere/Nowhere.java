@@ -1,5 +1,6 @@
 package net.vdragondev.nowhere;
 
+import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -17,6 +18,8 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.layer.BiomeLayers;
+import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.chunk.*;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -35,20 +38,16 @@ import net.vdragondev.nowhere.worldgen.biome.jsongen.BiomeDataListHolder;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.JsonGenBiomes;
 import net.vdragondev.nowhere.worldgen.biome.jsongen.SubBiomeDataListHolder;
 import net.vdragondev.nowhere.worldgen.features.VortexFeature;
+import net.vdragondev.nowhere.worldgen.world.NowhereWorldType;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.function.Supplier;
 
 
 public class Nowhere implements ModInitializer {
 
-	private static final GeneratorType NOWHERE = new GeneratorType("nowhere") {
-		protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry, Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
-			return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(seed, false, false, biomeRegistry), seed, () -> {
-				return (ChunkGeneratorSettings)chunkGeneratorSettingsRegistry.getOrThrow(ChunkGeneratorSettings.OVERWORLD);
-			});
-		}
-	};
+	public static NowhereWorldType nowhereWorldType;
 
 	private static final Feature<DefaultFeatureConfig> VORTEX_PYLON = new VortexFeature(
 		DefaultFeatureConfig.CODEC);
@@ -96,7 +95,6 @@ public class Nowhere implements ModInitializer {
 		NowhereWorldRegistries.registerWorldStuff();
 		commonSetup();
 		clearRAM();
-		GeneratorTypeMixin.getValues().add(NOWHERE);
 		System.out.println("Registered Nowhere, welcome... to your last stop...");
 	}
 
@@ -145,6 +143,17 @@ public class Nowhere implements ModInitializer {
 			System.out.println("Registering Biomes...");
 			BiomeRegistry.init();
 			System.out.println("Biomes Registered!");
+			System.out.println("Registering World...");
+			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+				nowhereWorldType = new NowhereWorldType() {
+					@Override protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry,
+						Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
+						return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(seed, false, false, biomeRegistry), seed,
+							(Supplier<ChunkGeneratorSettings>) chunkGeneratorSettingsRegistry);
+					}
+				};
+			}
+			System.out.println("World Registered!");
 		}
 	}
 }

@@ -6,6 +6,7 @@
   "mixins": [
     "plant.PlantMixin",
     "world.GeneratorTypeMixin",
+    "world.GeneratorSettingsMixin",
     "feature.SoilMixin"
   ],
   "client": [],

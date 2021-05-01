@@ -38,9 +38,16 @@ public class BlockRegistry {
     public static final Block VORTEXITE = createStones("vortexite");
     public static final Block MONOSTONE = createGlowingMonoStones("monostone");
     public static final Block CARNA_ROOTS = createFlower("carna_roots");
+    public static final Block SCRAP_PILLAR = createMetalPillars("scrap_pillar");
 
     static Block createLogs(String id) {
         Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(2.5f,2.5f));
+        Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+    static Block createMetalPillars(String id) {
+        Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.METAL).sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(5,5).breakByTool(FabricToolTags.PICKAXES));
         Registry.register(Registry.BLOCK, new Identifier(Nowhere.MOD_ID, id), createBlock);
         blocksList.add(createBlock);
         return createBlock;

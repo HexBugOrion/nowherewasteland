@@ -13,74 +13,7 @@ import java.util.function.LongFunction;
 public class NowhereBiomeLayers {
     private static final Int2IntMap
         field_26709 = (Int2IntMap) Util.make(new Int2IntOpenHashMap(), (int2IntOpenHashMap) -> {
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.BEACH, 16);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.BEACH, 26);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.DESERT, 2);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.DESERT, 17);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.DESERT, 130);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.EXTREME_HILLS, 131);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.EXTREME_HILLS, 162);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.EXTREME_HILLS, 20);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.EXTREME_HILLS, 3);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.EXTREME_HILLS, 34);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 27);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 28);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 29);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 157);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 132);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 4);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 155);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 156);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.FOREST, 18);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.ICY, 140);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.ICY, 13);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.ICY, 12);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 168);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 169);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 21);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 23);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 22);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 149);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.JUNGLE, 151);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.MESA, 37);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.MESA, 165);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.MESA, 167);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.MESA, 166);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.BADLANDS_PLATEAU, 39);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.BADLANDS_PLATEAU, 38);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.MUSHROOM, 14);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.MUSHROOM, 15);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.NONE, 25);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 46);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 49);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 50);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 48);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 24);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 47);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 10);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 45);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 0);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.OCEAN, 44);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.PLAINS, 1);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.PLAINS, 129);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.RIVER, 11);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.RIVER, 7);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.SAVANNA, 35);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.SAVANNA, 36);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.SAVANNA, 163);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.SAVANNA, 164);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.SWAMP, 6);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.SWAMP, 134);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 160);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 161);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 32);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 33);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 30);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 31);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 158);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 5);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 19);
-        method_31117(int2IntOpenHashMap, NowhereBiomeLayers.Category.TAIGA, 133);
+        layer(int2IntOpenHashMap, Category.NOWHERE, 16);
     });
 
     private static <T extends LayerSampler, C extends LayerSampleContext<T>> LayerFactory<T> stack(long seed, ParentedLayer layer, LayerFactory<T> parent, int count, LongFunction<C> contextProvider) {
@@ -162,7 +95,7 @@ public class NowhereBiomeLayers {
         }
     }
 
-    private static void method_31117(Int2IntOpenHashMap int2IntOpenHashMap, NowhereBiomeLayers.Category category, int i) {
+    private static void layer(Int2IntOpenHashMap int2IntOpenHashMap, NowhereBiomeLayers.Category category, int i) {
         int2IntOpenHashMap.put(i, category.ordinal());
     }
 
@@ -176,21 +109,7 @@ public class NowhereBiomeLayers {
 
     static enum Category {
         NONE,
-        TAIGA,
-        EXTREME_HILLS,
-        JUNGLE,
-        MESA,
-        BADLANDS_PLATEAU,
-        PLAINS,
-        SAVANNA,
-        ICY,
-        BEACH,
-        FOREST,
-        OCEAN,
-        DESERT,
-        RIVER,
-        SWAMP,
-        MUSHROOM;
+        NOWHERE;
         private Category() {
         }
     }

@@ -6,17 +6,18 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
 import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
+import net.vdragondev.nowhere.worldgen.NowhereLayeredBiomeSource;
 
-public class NowhereWorldType /*extends GeneratorType*/ {
-    /*protected NowhereWorldType() {
+import java.util.function.Supplier;
+
+public abstract class NowhereWorldType extends GeneratorType {
+    protected NowhereWorldType() {
         super("nowhere");
         GeneratorType.VALUES.add(this);
     }
 
-    @Override
-    protected ChunkGenerator getChunkGenerator(Registry<Biome> biomes, Registry<ChunkGeneratorSettings> settings, long seed) {
-        return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(biomes, seed, settings), seed);
+    protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry,
+        Supplier<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
+        return new NoiseChunkGenerator(new NowhereLayeredBiomeSource(seed, false, false, biomeRegistry), seed, chunkGeneratorSettingsRegistry);
     }
-
-     */
 }

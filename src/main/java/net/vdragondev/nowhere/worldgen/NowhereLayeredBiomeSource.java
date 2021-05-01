@@ -18,6 +18,7 @@ import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.biome.source.VanillaLayeredBiomeSource;
 import net.vdragondev.nowhere.Nowhere;
 import net.vdragondev.nowhere.registries.BiomeRegistry;
+import net.vdragondev.nowhere.worldgen.world.NowhereBiomeLayers;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class NowhereLayeredBiomeSource extends BiomeSource {
         this.legacyBiomeInitLayer = legacyBiomeInitLayer;
         this.largeBiomes = largeBiomes;
         this.biomeRegistry = biomeRegistry;
-        this.biomeSampler = BiomeLayers.build(seed, legacyBiomeInitLayer, largeBiomes ? 6 : 4, 4);
+        this.biomeSampler = NowhereBiomeLayers.build(seed, legacyBiomeInitLayer, largeBiomes ? 6 : 4, 4);
     }
 
     protected Codec<? extends BiomeSource> getCodec() {
@@ -68,7 +69,6 @@ public class NowhereLayeredBiomeSource extends BiomeSource {
 
     static {
         BIOMES = ImmutableList
-            .of(BiomeKeys.OCEAN, BiomeKeys.PLAINS, BiomeKeys.DESERT, BiomeKeys.MOUNTAINS, BiomeKeys.FOREST, BiomeKeys.TAIGA, BiomeKeys.SWAMP, BiomeKeys.RIVER, BiomeKeys.FROZEN_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.SNOWY_TUNDRA, BiomeKeys.SNOWY_MOUNTAINS, new RegistryKey[]{
-                BiomeRegistry.DUNES_KEY});
+            .of(BiomeKeys.OCEAN, BiomeKeys.PLAINS, BiomeKeys.DESERT, BiomeKeys.MOUNTAINS, BiomeKeys.FOREST, BiomeKeys.TAIGA, BiomeKeys.SWAMP, BiomeKeys.RIVER, BiomeKeys.FROZEN_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.SNOWY_TUNDRA, BiomeKeys.SNOWY_MOUNTAINS, new RegistryKey[]{BiomeRegistry.DUNES_KEY});
     }
 }
